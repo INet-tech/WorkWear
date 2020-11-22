@@ -43,12 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassForSql\Issuance.cs" />
+    <Compile Include="ClassForSql\Job.cs" />
+    <Compile Include="ClassForSql\Norma.cs" />
+    <Compile Include="ClassForSql\WorkWear.cs" />
     <Compile Include="Delete.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Delete.Designer.cs">
       <DependentUpon>Delete.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClassForSql\Employee.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
