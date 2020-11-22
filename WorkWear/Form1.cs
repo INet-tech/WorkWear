@@ -18,7 +18,26 @@ namespace WorkWear
 
         private void button1_Click(object sender, EventArgs e)
         {
+            var NewWorkWear = new Issurance();
+            NewWorkWear.Show();
+        }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            var NewEmployee= new Form2();
+            NewEmployee.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var NewNorma = new Norma();
+            NewNorma.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var Delete = new Delete();
+            Delete.Show();
         }
     }
 }
