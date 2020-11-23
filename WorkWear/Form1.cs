@@ -117,5 +117,11 @@ namespace WorkWear
             var WorkWear = new WorkWearForm();
             WorkWear.Show();
         }
+
+        private void buttonCreateReport_Click(object sender, EventArgs e)
+        {
+            var Report = new ReportForm();
+            Report.Show();
+        }
     }
 }
