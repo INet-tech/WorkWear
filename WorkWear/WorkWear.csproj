@@ -43,11 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Delete.cs">
+    <Compile Include="JobForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Delete.Designer.cs">
-      <DependentUpon>Delete.cs</DependentUpon>
+    <Compile Include="JobForm.Designer.cs">
+      <DependentUpon>JobForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -67,11 +67,11 @@
     <Compile Include="Issurance.Designer.cs">
       <DependentUpon>Issurance.cs</DependentUpon>
     </Compile>
-    <Compile Include="Norma.cs">
+    <Compile Include="NormaForms.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Norma.Designer.cs">
-      <DependentUpon>Norma.cs</DependentUpon>
+    <Compile Include="NormaForms.Designer.cs">
+      <DependentUpon>NormaForms.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,8 +80,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>WorkWearDBDataSet.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Delete.resx">
-      <DependentUpon>Delete.cs</DependentUpon>
+    <EmbeddedResource Include="JobForm.resx">
+      <DependentUpon>JobForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -92,8 +92,8 @@
     <EmbeddedResource Include="Issurance.resx">
       <DependentUpon>Issurance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Norma.resx">
-      <DependentUpon>Norma.cs</DependentUpon>
+    <EmbeddedResource Include="NormaForms.resx">
+      <DependentUpon>NormaForms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

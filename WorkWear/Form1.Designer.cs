@@ -33,9 +33,6 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.заявкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.jobBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.workWearDBDataSet = new WorkWear.WorkWearDBDataSet();
-            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -51,35 +48,38 @@
             this.button9 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button10 = new System.Windows.Forms.Button();
-            this.employeeTableAdapter = new WorkWear.WorkWearDBDataSetTableAdapters.EmployeeTableAdapter();
-            this.jobTableAdapter = new WorkWear.WorkWearDBDataSetTableAdapters.JobTableAdapter();
             this.fKEmployeeJobBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.OpenFormToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.WorkWearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NormaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.JobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iDEmployeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.middleNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDJobDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.jobBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.workWearDBDataSet = new WorkWear.WorkWearDBDataSet();
             this.employmentDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.heightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sizeClothDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sizeShoesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OpenFormToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.WorkWearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.NormaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.JobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeeTableAdapter = new WorkWear.WorkWearDBDataSetTableAdapters.EmployeeTableAdapter();
+            this.jobTableAdapter = new WorkWear.WorkWearDBDataSetTableAdapters.JobTableAdapter();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jobBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workWearDBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fKEmployeeJobBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jobBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workWearDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -106,7 +106,7 @@
             // заявкаToolStripMenuItem
             // 
             this.заявкаToolStripMenuItem.Name = "заявкаToolStripMenuItem";
-            this.заявкаToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.заявкаToolStripMenuItem.Size = new System.Drawing.Size(139, 26);
             this.заявкаToolStripMenuItem.Text = "Заявка";
             // 
             // dataGridView1
@@ -134,21 +134,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1140, 164);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // jobBindingSource
-            // 
-            this.jobBindingSource.DataMember = "Job";
-            this.jobBindingSource.DataSource = this.workWearDBDataSet;
-            // 
-            // workWearDBDataSet
-            // 
-            this.workWearDBDataSet.DataSetName = "WorkWearDBDataSet";
-            this.workWearDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // employeeBindingSource
-            // 
-            this.employeeBindingSource.DataMember = "Employee";
-            this.employeeBindingSource.DataSource = this.workWearDBDataSet;
             // 
             // groupBox1
             // 
@@ -308,18 +293,41 @@
             this.button10.Text = "Сформировать отчет";
             this.button10.UseVisualStyleBackColor = true;
             // 
-            // employeeTableAdapter
-            // 
-            this.employeeTableAdapter.ClearBeforeFill = true;
-            // 
-            // jobTableAdapter
-            // 
-            this.jobTableAdapter.ClearBeforeFill = true;
-            // 
             // fKEmployeeJobBindingSource
             // 
             this.fKEmployeeJobBindingSource.DataMember = "FK_Employee_Job";
             this.fKEmployeeJobBindingSource.DataSource = this.jobBindingSource;
+            // 
+            // OpenFormToolStripMenuItem
+            // 
+            this.OpenFormToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.JobToolStripMenuItem,
+            this.NormaToolStripMenuItem,
+            this.WorkWearToolStripMenuItem});
+            this.OpenFormToolStripMenuItem.Name = "OpenFormToolStripMenuItem";
+            this.OpenFormToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
+            this.OpenFormToolStripMenuItem.Text = "Настройки";
+            // 
+            // WorkWearToolStripMenuItem
+            // 
+            this.WorkWearToolStripMenuItem.Name = "WorkWearToolStripMenuItem";
+            this.WorkWearToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.WorkWearToolStripMenuItem.Text = "Спец Одежда";
+            this.WorkWearToolStripMenuItem.Click += new System.EventHandler(this.WorkWearToolStripMenuItem_Click);
+            // 
+            // NormaToolStripMenuItem
+            // 
+            this.NormaToolStripMenuItem.Name = "NormaToolStripMenuItem";
+            this.NormaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.NormaToolStripMenuItem.Text = "Норма ";
+            this.NormaToolStripMenuItem.Click += new System.EventHandler(this.NormaToolStripMenuItem_Click);
+            // 
+            // JobToolStripMenuItem
+            // 
+            this.JobToolStripMenuItem.Name = "JobToolStripMenuItem";
+            this.JobToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.JobToolStripMenuItem.Text = "Специальность";
+            this.JobToolStripMenuItem.Click += new System.EventHandler(this.JobToolStripMenuItem_Click);
             // 
             // iDEmployeeDataGridViewTextBoxColumn
             // 
@@ -376,6 +384,16 @@
             this.iDJobDataGridViewTextBoxColumn.ValueMember = "ID";
             this.iDJobDataGridViewTextBoxColumn.Width = 125;
             // 
+            // jobBindingSource
+            // 
+            this.jobBindingSource.DataMember = "Job";
+            this.jobBindingSource.DataSource = this.workWearDBDataSet;
+            // 
+            // workWearDBDataSet
+            // 
+            this.workWearDBDataSet.DataSetName = "WorkWearDBDataSet";
+            this.workWearDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // employmentDateDataGridViewTextBoxColumn
             // 
             this.employmentDateDataGridViewTextBoxColumn.DataPropertyName = "EmploymentDate";
@@ -418,34 +436,18 @@
             this.sizeShoesDataGridViewTextBoxColumn.Name = "sizeShoesDataGridViewTextBoxColumn";
             this.sizeShoesDataGridViewTextBoxColumn.Width = 125;
             // 
-            // OpenFormToolStripMenuItem
+            // employeeBindingSource
             // 
-            this.OpenFormToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.JobToolStripMenuItem,
-            this.NormaToolStripMenuItem,
-            this.WorkWearToolStripMenuItem});
-            this.OpenFormToolStripMenuItem.Name = "OpenFormToolStripMenuItem";
-            this.OpenFormToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
-            this.OpenFormToolStripMenuItem.Text = "Настройки";
+            this.employeeBindingSource.DataMember = "Employee";
+            this.employeeBindingSource.DataSource = this.workWearDBDataSet;
             // 
-            // WorkWearToolStripMenuItem
+            // employeeTableAdapter
             // 
-            this.WorkWearToolStripMenuItem.Name = "WorkWearToolStripMenuItem";
-            this.WorkWearToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.WorkWearToolStripMenuItem.Text = "Спец Одежда";
+            this.employeeTableAdapter.ClearBeforeFill = true;
             // 
-            // NormaToolStripMenuItem
+            // jobTableAdapter
             // 
-            this.NormaToolStripMenuItem.Name = "NormaToolStripMenuItem";
-            this.NormaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.NormaToolStripMenuItem.Text = "Норма ";
-            // 
-            // JobToolStripMenuItem
-            // 
-            this.JobToolStripMenuItem.Name = "JobToolStripMenuItem";
-            this.JobToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.JobToolStripMenuItem.Text = "Специальность";
-            this.JobToolStripMenuItem.Click += new System.EventHandler(this.JobToolStripMenuItem_Click);
+            this.jobTableAdapter.ClearBeforeFill = true;
             // 
             // Form1
             // 
@@ -470,15 +472,15 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jobBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workWearDBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fKEmployeeJobBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jobBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workWearDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

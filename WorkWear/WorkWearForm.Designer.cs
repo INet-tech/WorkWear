@@ -126,7 +126,7 @@
             this.ClientSize = new System.Drawing.Size(821, 395);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "WorkWearForm";
             this.Text = "Добавление нового работника";

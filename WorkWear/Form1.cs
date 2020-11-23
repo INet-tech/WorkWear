@@ -86,13 +86,13 @@ namespace WorkWear
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var NewNorma = new Norma();
+            var NewNorma = new NormaForms();
             NewNorma.Show();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            var Delete = new Delete();
+            var Delete = new JobForm();
             Delete.Show();
         }
 
@@ -102,7 +102,19 @@ namespace WorkWear
 
         private void JobToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var  WorkWear = new WorkWearForm();
+            var Job  = new JobForm();
+            Job.Show();
+        }
+
+        private void NormaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var Norma = new NormaForms();
+            Norma.Show();
+        }
+
+        private void WorkWearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var WorkWear = new WorkWearForm();
             WorkWear.Show();
         }
     }
