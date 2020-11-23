@@ -11,8 +11,8 @@ using System.Windows.Forms;
 namespace WorkWear
 {
     public partial class Form1 : Form
-    {   // строка подключения @"Data Source= "сюда впиши названия сервера сервера"
-        string connectionString = @"Data Source= DESKTOP-FOIFO93 ;Initial Catalog=WorkWearDB;Integrated Security=True";
+    {   // строка подключения @"Data Source= .\SQLEXPESS;
+        string connectionString = @"Data Source= DESKTOP-HDKIKM5 ;Initial Catalog=WorkWearDB;Integrated Security=True";
         string commandString = "SELECT * FROM Employee";
 
         DataTable employee = new DataTable("Employee");
@@ -64,8 +64,12 @@ namespace WorkWear
 
 
 
+
         #endregion
 
-       
+        private void dataGridViewEmployee_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

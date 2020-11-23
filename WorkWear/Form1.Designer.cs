@@ -76,13 +76,13 @@
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.заявкаToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(58, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(56, 24);
             this.toolStripMenuItem1.Text = "файл";
             // 
             // заявкаToolStripMenuItem
             // 
             this.заявкаToolStripMenuItem.Name = "заявкаToolStripMenuItem";
-            this.заявкаToolStripMenuItem.Size = new System.Drawing.Size(139, 26);
+            this.заявкаToolStripMenuItem.Size = new System.Drawing.Size(131, 26);
             this.заявкаToolStripMenuItem.Text = "Заявка";
             // 
             // dataGridViewEmployee
@@ -94,6 +94,7 @@
             this.dataGridViewEmployee.RowHeadersWidth = 51;
             this.dataGridViewEmployee.Size = new System.Drawing.Size(892, 332);
             this.dataGridViewEmployee.TabIndex = 1;
+            this.dataGridViewEmployee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmployee_CellContentClick);
             // 
             // groupBox1
             // 
