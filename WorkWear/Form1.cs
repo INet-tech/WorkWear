@@ -27,28 +27,17 @@ namespace WorkWear
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Check the cell clicked is not the column header cell
             if (e.RowIndex != -1)
             {
-                // Apply on column index in which you want to display DatetimePicker.
-                // For this example it is 2.
                 if (e.ColumnIndex == 6)
                 {
-                    // Initialize the dateTimePicker1.
                     dateTimePicker1 = new DateTimePicker();
-                    // Adding the dateTimePicker1 into DataGridView.   
                     dataGridView1.Controls.Add(dateTimePicker1);
-                    // Setting the format i.e. mm/dd/yyyy)
                     dateTimePicker1.Format = DateTimePickerFormat.Short;
-                    // Create retangular area that represents the display area for a cell.
                     Rectangle oRectangle = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
-                    // Setting area for dateTimePicker1.
                     dateTimePicker1.Size = new Size(oRectangle.Width, oRectangle.Height);
-                    // Setting location for dateTimePicker1.
                     dateTimePicker1.Location = new Point(oRectangle.X, oRectangle.Y);
-                    // An event attached to dateTimePicker1 which is fired when any date is selected.
                     dateTimePicker1.TextChanged += new EventHandler(DateTimePickerChange);
-                    // An event attached to dateTimePicker1 which is fired when DateTimeControl is closed.
                     dateTimePicker1.CloseUp += new EventHandler(DateTimePickerClose);
                 }
             }
@@ -91,7 +80,7 @@ namespace WorkWear
 
         private void button6_Click(object sender, EventArgs e)
         {
-            var NewEmployee= new Form2();
+            var NewEmployee= new WorkWearForm();
             NewEmployee.Show();
         }
 
@@ -108,8 +97,13 @@ namespace WorkWear
         }
 
 
+
         #endregion
 
-      
+        private void JobToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var  WorkWear = new WorkWearForm();
+            WorkWear.Show();
+        }
     }
 }
