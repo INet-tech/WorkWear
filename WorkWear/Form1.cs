@@ -11,11 +11,78 @@ namespace WorkWear
 {
     public partial class Form1 : Form
     {
+        DateTimePicker dateTimePicker1;
         public Form1()
         {
             InitializeComponent();
         }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "workWearDBDataSet.Job". При необходимости она может быть перемещена или удалена.
+            this.jobTableAdapter.Fill(this.workWearDBDataSet.Job);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "workWearDBDataSet.Employee". При необходимости она может быть перемещена или удалена.
+            this.employeeTableAdapter.Fill(this.workWearDBDataSet.Employee);
+        }
+       # region DataGridView1
 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Check the cell clicked is not the column header cell
+            if (e.RowIndex != -1)
+            {
+                // Apply on column index in which you want to display DatetimePicker.
+                // For this example it is 2.
+                if (e.ColumnIndex == 6)
+                {
+                    // Initialize the dateTimePicker1.
+                    dateTimePicker1 = new DateTimePicker();
+                    // Adding the dateTimePicker1 into DataGridView.   
+                    dataGridView1.Controls.Add(dateTimePicker1);
+                    // Setting the format i.e. mm/dd/yyyy)
+                    dateTimePicker1.Format = DateTimePickerFormat.Short;
+                    // Create retangular area that represents the display area for a cell.
+                    Rectangle oRectangle = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+                    // Setting area for dateTimePicker1.
+                    dateTimePicker1.Size = new Size(oRectangle.Width, oRectangle.Height);
+                    // Setting location for dateTimePicker1.
+                    dateTimePicker1.Location = new Point(oRectangle.X, oRectangle.Y);
+                    // An event attached to dateTimePicker1 which is fired when any date is selected.
+                    dateTimePicker1.TextChanged += new EventHandler(DateTimePickerChange);
+                    // An event attached to dateTimePicker1 which is fired when DateTimeControl is closed.
+                    dateTimePicker1.CloseUp += new EventHandler(DateTimePickerClose);
+                }
+            }
+        }
+
+        private void DateTimePickerChange(object sender, EventArgs e)
+        {
+            dataGridView1.CurrentCell.Value = dateTimePicker1.Text.ToString();
+        }
+
+        private void DateTimePickerClose(object sender, EventArgs e)
+        {
+            dateTimePicker1.Visible = false;
+        }
+#endregion
+
+
+
+
+
+
+        #region Button
+        private void buttonUpdateGrid_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show
+                ("Внести изменение в BD?","Внимание",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+                 );
+            if (result == DialogResult.Yes)
+            {
+                this.employeeTableAdapter.Update(this.workWearDBDataSet.Employee);
+            }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             var NewWorkWear = new Issurance();
@@ -39,5 +106,10 @@ namespace WorkWear
             var Delete = new Delete();
             Delete.Show();
         }
+
+
+        #endregion
+
+      
     }
 }
