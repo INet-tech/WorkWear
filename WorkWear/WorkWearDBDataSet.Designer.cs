@@ -44,6 +44,8 @@ namespace WorkWear {
         
         private global::System.Data.DataRelation relationFK_Issuance_WorkWear;
         
+        private global::System.Data.DataRelation relationFK_Employee_Job1;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -305,6 +307,7 @@ namespace WorkWear {
             this.relationFK_Norma_WorkWear1 = this.Relations["FK_Norma_WorkWear1"];
             this.relationFK_Issuance_Employee = this.Relations["FK_Issuance_Employee"];
             this.relationFK_Issuance_WorkWear = this.Relations["FK_Issuance_WorkWear"];
+            this.relationFK_Employee_Job1 = this.Relations["FK_Employee_Job1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -345,6 +348,10 @@ namespace WorkWear {
                         this.tableWorkWear.ID_WorkWearColumn}, new global::System.Data.DataColumn[] {
                         this.tableIssuance.ID_WorkWearColumn}, false);
             this.Relations.Add(this.relationFK_Issuance_WorkWear);
+            this.relationFK_Employee_Job1 = new global::System.Data.DataRelation("FK_Employee_Job1", new global::System.Data.DataColumn[] {
+                        this.tableJob.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableIssuance.ID_JobColumn}, false);
+            this.Relations.Add(this.relationFK_Employee_Job1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1780,6 +1787,10 @@ namespace WorkWear {
             
             private global::System.Data.DataColumn columnID_WorkWear;
             
+            private global::System.Data.DataColumn columnempId;
+            
+            private global::System.Data.DataColumn columnID_Job;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public IssuanceDataTable() {
@@ -1847,6 +1858,22 @@ namespace WorkWear {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn empIdColumn {
+                get {
+                    return this.columnempId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ID_JobColumn {
+                get {
+                    return this.columnID_Job;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1882,18 +1909,23 @@ namespace WorkWear {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public IssuanceRow AddIssuanceRow(EmployeeRow parentEmployeeRowByFK_Issuance_Employee, System.DateTime EssuanceDate, WorkWearRow parentWorkWearRowByFK_Issuance_WorkWear) {
+            public IssuanceRow AddIssuanceRow(EmployeeRow parentEmployeeRowByFK_Issuance_Employee, System.DateTime EssuanceDate, WorkWearRow parentWorkWearRowByFK_Issuance_WorkWear, JobRow parentJobRowByFK_Employee_Job1) {
                 IssuanceRow rowIssuanceRow = ((IssuanceRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         EssuanceDate,
+                        null,
+                        null,
                         null};
                 if ((parentEmployeeRowByFK_Issuance_Employee != null)) {
                     columnValuesArray[1] = parentEmployeeRowByFK_Issuance_Employee[0];
                 }
                 if ((parentWorkWearRowByFK_Issuance_WorkWear != null)) {
                     columnValuesArray[3] = parentWorkWearRowByFK_Issuance_WorkWear[0];
+                }
+                if ((parentJobRowByFK_Employee_Job1 != null)) {
+                    columnValuesArray[5] = parentJobRowByFK_Employee_Job1[0];
                 }
                 rowIssuanceRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowIssuanceRow);
@@ -1928,6 +1960,8 @@ namespace WorkWear {
                 this.columnID_Employee = base.Columns["ID_Employee"];
                 this.columnEssuanceDate = base.Columns["EssuanceDate"];
                 this.columnID_WorkWear = base.Columns["ID_WorkWear"];
+                this.columnempId = base.Columns["empId"];
+                this.columnID_Job = base.Columns["ID_Job"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1941,6 +1975,10 @@ namespace WorkWear {
                 base.Columns.Add(this.columnEssuanceDate);
                 this.columnID_WorkWear = new global::System.Data.DataColumn("ID_WorkWear", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID_WorkWear);
+                this.columnempId = new global::System.Data.DataColumn("empId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnempId);
+                this.columnID_Job = new global::System.Data.DataColumn("ID_Job", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_Job);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID_Issuance}, true));
                 this.columnID_Issuance.AutoIncrement = true;
@@ -1949,9 +1987,11 @@ namespace WorkWear {
                 this.columnID_Issuance.AllowDBNull = false;
                 this.columnID_Issuance.ReadOnly = true;
                 this.columnID_Issuance.Unique = true;
-                this.columnID_Employee.AllowDBNull = false;
-                this.columnEssuanceDate.AllowDBNull = false;
-                this.columnID_WorkWear.AllowDBNull = false;
+                this.columnempId.AutoIncrement = true;
+                this.columnempId.AutoIncrementSeed = -1;
+                this.columnempId.AutoIncrementStep = -1;
+                this.columnempId.AllowDBNull = false;
+                this.columnempId.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2457,6 +2497,17 @@ namespace WorkWear {
                     return ((NormaRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Norma_Job1"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public IssuanceRow[] GetIssuanceRows() {
+                if ((this.Table.ChildRelations["FK_Employee_Job1"] == null)) {
+                    return new IssuanceRow[0];
+                }
+                else {
+                    return ((IssuanceRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Employee_Job1"])));
+                }
+            }
         }
         
         /// <summary>
@@ -2735,7 +2786,12 @@ namespace WorkWear {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int ID_Employee {
                 get {
-                    return ((int)(this[this.tableIssuance.ID_EmployeeColumn]));
+                    try {
+                        return ((int)(this[this.tableIssuance.ID_EmployeeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ID_Employee\' в таблице \'Issuance\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableIssuance.ID_EmployeeColumn] = value;
@@ -2746,7 +2802,12 @@ namespace WorkWear {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public System.DateTime EssuanceDate {
                 get {
-                    return ((global::System.DateTime)(this[this.tableIssuance.EssuanceDateColumn]));
+                    try {
+                        return ((global::System.DateTime)(this[this.tableIssuance.EssuanceDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'EssuanceDate\' в таблице \'Issuance\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableIssuance.EssuanceDateColumn] = value;
@@ -2757,10 +2818,42 @@ namespace WorkWear {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int ID_WorkWear {
                 get {
-                    return ((int)(this[this.tableIssuance.ID_WorkWearColumn]));
+                    try {
+                        return ((int)(this[this.tableIssuance.ID_WorkWearColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ID_WorkWear\' в таблице \'Issuance\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableIssuance.ID_WorkWearColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int empId {
+                get {
+                    return ((int)(this[this.tableIssuance.empIdColumn]));
+                }
+                set {
+                    this[this.tableIssuance.empIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int ID_Job {
+                get {
+                    try {
+                        return ((int)(this[this.tableIssuance.ID_JobColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ID_Job\' в таблице \'Issuance\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableIssuance.ID_JobColumn] = value;
                 }
             }
             
@@ -2784,6 +2877,65 @@ namespace WorkWear {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Issuance_WorkWear"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public JobRow JobRow {
+                get {
+                    return ((JobRow)(this.GetParentRow(this.Table.ParentRelations["FK_Employee_Job1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Employee_Job1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsID_EmployeeNull() {
+                return this.IsNull(this.tableIssuance.ID_EmployeeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetID_EmployeeNull() {
+                this[this.tableIssuance.ID_EmployeeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsEssuanceDateNull() {
+                return this.IsNull(this.tableIssuance.EssuanceDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetEssuanceDateNull() {
+                this[this.tableIssuance.EssuanceDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsID_WorkWearNull() {
+                return this.IsNull(this.tableIssuance.ID_WorkWearColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetID_WorkWearNull() {
+                this[this.tableIssuance.ID_WorkWearColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsID_JobNull() {
+                return this.IsNull(this.tableIssuance.ID_JobColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetID_JobNull() {
+                this[this.tableIssuance.ID_JobColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4890,39 +5042,9 @@ SELECT ID_Norma, ID_Job, NameWorkwear, PeriodOfMonth FROM Norma WHERE (ID_Norma 
             tableMapping.ColumnMappings.Add("ID_Employee", "ID_Employee");
             tableMapping.ColumnMappings.Add("EssuanceDate", "EssuanceDate");
             tableMapping.ColumnMappings.Add("ID_WorkWear", "ID_WorkWear");
+            tableMapping.ColumnMappings.Add("empId", "empId");
+            tableMapping.ColumnMappings.Add("ID_Job", "ID_Job");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Issuance] WHERE (([ID_Issuance] = @Original_ID_Issuance) AND ([ID_Em" +
-                "ployee] = @Original_ID_Employee) AND ([EssuanceDate] = @Original_EssuanceDate) A" +
-                "ND ([ID_WorkWear] = @Original_ID_WorkWear))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Issuance", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Issuance", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Employee", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Employee", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EssuanceDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EssuanceDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_WorkWear", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_WorkWear", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [Issuance] ([ID_Employee], [EssuanceDate], [ID_WorkWear]) VALUES (@ID" +
-                "_Employee, @EssuanceDate, @ID_WorkWear);\r\nSELECT ID_Issuance, ID_Employee, Essua" +
-                "nceDate, ID_WorkWear FROM Issuance WHERE (ID_Issuance = SCOPE_IDENTITY())";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Employee", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Employee", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EssuanceDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EssuanceDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_WorkWear", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_WorkWear", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Issuance] SET [ID_Employee] = @ID_Employee, [EssuanceDate] = @EssuanceDate, [ID_WorkWear] = @ID_WorkWear WHERE (([ID_Issuance] = @Original_ID_Issuance) AND ([ID_Employee] = @Original_ID_Employee) AND ([EssuanceDate] = @Original_EssuanceDate) AND ([ID_WorkWear] = @Original_ID_WorkWear));
-SELECT ID_Issuance, ID_Employee, EssuanceDate, ID_WorkWear FROM Issuance WHERE (ID_Issuance = @ID_Issuance)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Employee", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Employee", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EssuanceDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EssuanceDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_WorkWear", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_WorkWear", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Issuance", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Issuance", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Employee", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Employee", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EssuanceDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EssuanceDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_WorkWear", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_WorkWear", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Issuance", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Issuance", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4938,7 +5060,10 @@ SELECT ID_Issuance, ID_Employee, EssuanceDate, ID_WorkWear FROM Issuance WHERE (
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID_Issuance, ID_Employee, EssuanceDate, ID_WorkWear\r\nFROM     Issuance";
+            this._commandCollection[0].CommandText = "SELECT Issuance.ID_Issuance, Issuance.ID_Employee, Issuance.EssuanceDate, Issuanc" +
+                "e.ID_WorkWear, Employee.ID_Employee AS empId, Employee.ID_Job\r\nFROM     Issuance" +
+                " INNER JOIN\r\n                  Employee ON Issuance.ID_Employee = Employee.ID_Em" +
+                "ployee";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4965,121 +5090,6 @@ SELECT ID_Issuance, ID_Employee, EssuanceDate, ID_WorkWear FROM Issuance WHERE (
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(WorkWearDBDataSet.IssuanceDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(WorkWearDBDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Issuance");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID_Issuance, int Original_ID_Employee, System.DateTime Original_EssuanceDate, int Original_ID_WorkWear) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID_Issuance));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_ID_Employee));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((System.DateTime)(Original_EssuanceDate));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_ID_WorkWear));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int ID_Employee, System.DateTime EssuanceDate, int ID_WorkWear) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ID_Employee));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(EssuanceDate));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(ID_WorkWear));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int ID_Employee, System.DateTime EssuanceDate, int ID_WorkWear, int Original_ID_Issuance, int Original_ID_Employee, System.DateTime Original_EssuanceDate, int Original_ID_WorkWear, int ID_Issuance) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ID_Employee));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(EssuanceDate));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(ID_WorkWear));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_ID_Issuance));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ID_Employee));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(Original_EssuanceDate));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_ID_WorkWear));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(ID_Issuance));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int ID_Employee, System.DateTime EssuanceDate, int ID_WorkWear, int Original_ID_Issuance, int Original_ID_Employee, System.DateTime Original_EssuanceDate, int Original_ID_WorkWear) {
-            return this.Update(ID_Employee, EssuanceDate, ID_WorkWear, Original_ID_Issuance, Original_ID_Employee, Original_EssuanceDate, Original_ID_WorkWear, Original_ID_Issuance);
-        }
     }
     
     /// <summary>
@@ -5101,8 +5111,6 @@ SELECT ID_Issuance, ID_Employee, EssuanceDate, ID_WorkWear FROM Issuance WHERE (
         private WorkWearTableAdapter _workWearTableAdapter;
         
         private NormaTableAdapter _normaTableAdapter;
-        
-        private IssuanceTableAdapter _issuanceTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -5177,20 +5185,6 @@ SELECT ID_Issuance, ID_Employee, EssuanceDate, ID_WorkWear FROM Issuance WHERE (
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public IssuanceTableAdapter IssuanceTableAdapter {
-            get {
-                return this._issuanceTableAdapter;
-            }
-            set {
-                this._issuanceTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -5224,10 +5218,6 @@ SELECT ID_Issuance, ID_Employee, EssuanceDate, ID_WorkWear FROM Issuance WHERE (
                             && (this._normaTableAdapter.Connection != null))) {
                     return this._normaTableAdapter.Connection;
                 }
-                if (((this._issuanceTableAdapter != null) 
-                            && (this._issuanceTableAdapter.Connection != null))) {
-                    return this._issuanceTableAdapter.Connection;
-                }
                 return null;
             }
             set {
@@ -5251,9 +5241,6 @@ SELECT ID_Issuance, ID_Employee, EssuanceDate, ID_WorkWear FROM Issuance WHERE (
                     count = (count + 1);
                 }
                 if ((this._normaTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._issuanceTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -5303,15 +5290,6 @@ SELECT ID_Issuance, ID_Employee, EssuanceDate, ID_WorkWear FROM Issuance WHERE (
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._issuanceTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Issuance.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._issuanceTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             return result;
         }
         
@@ -5354,14 +5332,6 @@ SELECT ID_Issuance, ID_Employee, EssuanceDate, ID_WorkWear FROM Issuance WHERE (
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._issuanceTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Issuance.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._issuanceTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -5372,14 +5342,6 @@ SELECT ID_Issuance, ID_Employee, EssuanceDate, ID_WorkWear FROM Issuance WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(WorkWearDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._issuanceTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Issuance.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._issuanceTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._normaTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Norma.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -5471,11 +5433,6 @@ SELECT ID_Issuance, ID_Employee, EssuanceDate, ID_WorkWear FROM Issuance WHERE (
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
-            if (((this._issuanceTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._issuanceTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
-                        "r, должны использовать одинаковую строку подключения.");
-            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager не содержит сведений о подключении. Укажите для каждого адапт" +
@@ -5542,15 +5499,6 @@ SELECT ID_Issuance, ID_Employee, EssuanceDate, ID_WorkWear FROM Issuance WHERE (
                     if (this._normaTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._normaTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._normaTableAdapter.Adapter);
-                    }
-                }
-                if ((this._issuanceTableAdapter != null)) {
-                    revertConnections.Add(this._issuanceTableAdapter, this._issuanceTableAdapter.Connection);
-                    this._issuanceTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._issuanceTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._issuanceTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._issuanceTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._issuanceTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -5626,10 +5574,6 @@ SELECT ID_Issuance, ID_Employee, EssuanceDate, ID_WorkWear FROM Issuance WHERE (
                 if ((this._normaTableAdapter != null)) {
                     this._normaTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._normaTableAdapter]));
                     this._normaTableAdapter.Transaction = null;
-                }
-                if ((this._issuanceTableAdapter != null)) {
-                    this._issuanceTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._issuanceTableAdapter]));
-                    this._issuanceTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
