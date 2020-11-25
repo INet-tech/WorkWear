@@ -54,7 +54,7 @@ namespace WorkWear
         }
 #endregion
 
-
+         
 
 
 
@@ -62,7 +62,7 @@ namespace WorkWear
         #region Button
         private void buttonUpdateGrid_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show
+                DialogResult result = MessageBox.Show
                 ("Внести изменение в BD?","Внимание",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning

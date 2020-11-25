@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.workWearBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.workWearDBDataSet = new WorkWear.WorkWearDBDataSet();
+            this.workWearTableAdapter = new WorkWear.WorkWearDBDataSetTableAdapters.WorkWearTableAdapter();
             this.iDWorkWearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameWorkwearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classificationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.measureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.workWearBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.workWearDBDataSet = new WorkWear.WorkWearDBDataSet();
-            this.workWearTableAdapter = new WorkWear.WorkWearDBDataSetTableAdapters.WorkWearTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workWearBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workWearDBDataSet)).BeginInit();
@@ -45,7 +45,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(336, 354);
+            this.button1.Location = new System.Drawing.Point(216, 355);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(153, 28);
@@ -69,8 +69,22 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(821, 347);
+            this.dataGridView1.Size = new System.Drawing.Size(587, 347);
             this.dataGridView1.TabIndex = 25;
+            // 
+            // workWearBindingSource
+            // 
+            this.workWearBindingSource.DataMember = "WorkWear";
+            this.workWearBindingSource.DataSource = this.workWearDBDataSet;
+            // 
+            // workWearDBDataSet
+            // 
+            this.workWearDBDataSet.DataSetName = "WorkWearDBDataSet";
+            this.workWearDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // workWearTableAdapter
+            // 
+            this.workWearTableAdapter.ClearBeforeFill = true;
             // 
             // iDWorkWearDataGridViewTextBoxColumn
             // 
@@ -79,6 +93,7 @@
             this.iDWorkWearDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.iDWorkWearDataGridViewTextBoxColumn.Name = "iDWorkWearDataGridViewTextBoxColumn";
             this.iDWorkWearDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDWorkWearDataGridViewTextBoxColumn.Visible = false;
             this.iDWorkWearDataGridViewTextBoxColumn.Width = 125;
             // 
             // nameWorkwearDataGridViewTextBoxColumn
@@ -105,25 +120,11 @@
             this.measureDataGridViewTextBoxColumn.Name = "measureDataGridViewTextBoxColumn";
             this.measureDataGridViewTextBoxColumn.Width = 125;
             // 
-            // workWearBindingSource
-            // 
-            this.workWearBindingSource.DataMember = "WorkWear";
-            this.workWearBindingSource.DataSource = this.workWearDBDataSet;
-            // 
-            // workWearDBDataSet
-            // 
-            this.workWearDBDataSet.DataSetName = "WorkWearDBDataSet";
-            this.workWearDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // workWearTableAdapter
-            // 
-            this.workWearTableAdapter.ClearBeforeFill = true;
-            // 
             // WorkWearForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(821, 395);
+            this.ClientSize = new System.Drawing.Size(587, 396);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;

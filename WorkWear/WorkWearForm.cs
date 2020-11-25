@@ -18,7 +18,15 @@ namespace WorkWear
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.workWearTableAdapter.Update(this.workWearDBDataSet.WorkWear);
+            DialogResult result = MessageBox.Show
+                ("Внести изменение в BD?", "Внимание",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+                 );
+            if (result == DialogResult.Yes)
+            {
+                this.workWearTableAdapter.Update(this.workWearDBDataSet.WorkWear);
+            }
         }
 
 

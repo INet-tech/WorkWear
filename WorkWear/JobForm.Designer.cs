@@ -31,20 +31,20 @@
             this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.workWearDBDataSet = new WorkWear.WorkWearDBDataSet();
-            this.jobBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.jobTableAdapter = new WorkWear.WorkWearDBDataSetTableAdapters.JobTableAdapter();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDJobDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jobDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jobBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.workWearDBDataSet = new WorkWear.WorkWearDBDataSet();
+            this.jobTableAdapter = new WorkWear.WorkWearDBDataSetTableAdapters.JobTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workWearDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jobBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workWearDBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(106, 235);
+            this.button1.Location = new System.Drawing.Point(218, 287);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(151, 33);
             this.button1.TabIndex = 1;
@@ -61,26 +61,13 @@
             this.iDJobDataGridViewTextBoxColumn,
             this.jobDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.jobBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(60, 12);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(455, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(587, 281);
             this.dataGridView1.TabIndex = 2;
-            // 
-            // workWearDBDataSet
-            // 
-            this.workWearDBDataSet.DataSetName = "WorkWearDBDataSet";
-            this.workWearDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // jobBindingSource
-            // 
-            this.jobBindingSource.DataMember = "Job";
-            this.jobBindingSource.DataSource = this.workWearDBDataSet;
-            // 
-            // jobTableAdapter
-            // 
-            this.jobTableAdapter.ClearBeforeFill = true;
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -106,11 +93,25 @@
             this.jobDataGridViewTextBoxColumn.Name = "jobDataGridViewTextBoxColumn";
             this.jobDataGridViewTextBoxColumn.Width = 125;
             // 
+            // jobBindingSource
+            // 
+            this.jobBindingSource.DataMember = "Job";
+            this.jobBindingSource.DataSource = this.workWearDBDataSet;
+            // 
+            // workWearDBDataSet
+            // 
+            this.workWearDBDataSet.DataSetName = "WorkWearDBDataSet";
+            this.workWearDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // jobTableAdapter
+            // 
+            this.jobTableAdapter.ClearBeforeFill = true;
+            // 
             // JobForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(811, 309);
+            this.ClientSize = new System.Drawing.Size(587, 332);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
@@ -118,8 +119,8 @@
             this.Text = "Удаление";
             this.Load += new System.EventHandler(this.JobForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workWearDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jobBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workWearDBDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
