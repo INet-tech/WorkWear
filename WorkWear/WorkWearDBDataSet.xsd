@@ -299,12 +299,15 @@ SELECT ID_Norma, ID_Job, NameWorkwear, PeriodOfMonth FROM Norma WHERE (ID_Norma 
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="IssuanceTableAdapter" GeneratorDataComponentClassName="IssuanceTableAdapter" Name="Issuance" UserDataComponentName="IssuanceTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="WorkWearDBConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="WorkWearDBConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT Issuance.ID_Issuance, Issuance.ID_Employee, Issuance.EssuanceDate, Issuance.ID_WorkWear, Employee.ID_Employee AS empId, Employee.ID_Job
-FROM     Issuance INNER JOIN
-                  Employee ON Issuance.ID_Employee = Employee.ID_Employee</CommandText>
+                    <CommandText>SELECT Issu.ID_Issuance, Issu.ID_Employee, { fn CONCAT(Emp.LastName, + ' ' + Emp.FirstName) } AS FullName, Emp.ID_Employee AS Expr1, WoWe.ID_WorkWear, WoWe.NameWorkwear, Issu.EssuanceDate, Emp.ID_Job, 
+                  Norm.PeriodOfMonth
+FROM     Issuance AS Issu LEFT OUTER JOIN
+                  WorkWear AS WoWe ON Issu.ID_WorkWear = WoWe.ID_WorkWear LEFT OUTER JOIN
+                  Employee AS Emp ON Issu.ID_Employee = Emp.ID_Employee LEFT OUTER JOIN
+                  Norma AS Norm ON Emp.ID_Job = Norm.ID_Job AND Issu.ID_WorkWear = Norm.NameWorkwear</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -315,8 +318,11 @@ FROM     Issuance INNER JOIN
               <Mapping SourceColumn="ID_Employee" DataSetColumn="ID_Employee" />
               <Mapping SourceColumn="EssuanceDate" DataSetColumn="EssuanceDate" />
               <Mapping SourceColumn="ID_WorkWear" DataSetColumn="ID_WorkWear" />
-              <Mapping SourceColumn="empId" DataSetColumn="empId" />
               <Mapping SourceColumn="ID_Job" DataSetColumn="ID_Job" />
+              <Mapping SourceColumn="FullName" DataSetColumn="FullName" />
+              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
+              <Mapping SourceColumn="NameWorkwear" DataSetColumn="NameWorkwear" />
+              <Mapping SourceColumn="PeriodOfMonth" DataSetColumn="PeriodOfMonth" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -435,8 +441,23 @@ FROM     Issuance INNER JOIN
               <xs:element name="ID_Employee" msprop:Generator_ColumnVarNameInTable="columnID_Employee" msprop:Generator_ColumnPropNameInRow="ID_Employee" msprop:Generator_ColumnPropNameInTable="ID_EmployeeColumn" msprop:Generator_UserColumnName="ID_Employee" type="xs:int" minOccurs="0" />
               <xs:element name="EssuanceDate" msprop:Generator_ColumnVarNameInTable="columnEssuanceDate" msprop:Generator_ColumnPropNameInRow="EssuanceDate" msprop:Generator_ColumnPropNameInTable="EssuanceDateColumn" msprop:Generator_UserColumnName="EssuanceDate" type="xs:dateTime" minOccurs="0" />
               <xs:element name="ID_WorkWear" msprop:Generator_ColumnVarNameInTable="columnID_WorkWear" msprop:Generator_ColumnPropNameInRow="ID_WorkWear" msprop:Generator_ColumnPropNameInTable="ID_WorkWearColumn" msprop:Generator_UserColumnName="ID_WorkWear" type="xs:int" minOccurs="0" />
-              <xs:element name="empId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnempId" msprop:Generator_ColumnPropNameInRow="empId" msprop:Generator_ColumnPropNameInTable="empIdColumn" msprop:Generator_UserColumnName="empId" type="xs:int" />
               <xs:element name="ID_Job" msprop:Generator_ColumnVarNameInTable="columnID_Job" msprop:Generator_ColumnPropNameInRow="ID_Job" msprop:Generator_ColumnPropNameInTable="ID_JobColumn" msprop:Generator_UserColumnName="ID_Job" type="xs:int" minOccurs="0" />
+              <xs:element name="FullName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFullName" msprop:Generator_ColumnPropNameInRow="FullName" msprop:Generator_ColumnPropNameInTable="FullNameColumn" msprop:Generator_UserColumnName="FullName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="41" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Expr1" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1" type="xs:int" minOccurs="0" />
+              <xs:element name="NameWorkwear" msprop:Generator_ColumnVarNameInTable="columnNameWorkwear" msprop:Generator_ColumnPropNameInRow="NameWorkwear" msprop:Generator_ColumnPropNameInTable="NameWorkwearColumn" msprop:Generator_UserColumnName="NameWorkwear" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PeriodOfMonth" msprop:Generator_ColumnVarNameInTable="columnPeriodOfMonth" msprop:Generator_ColumnPropNameInRow="PeriodOfMonth" msprop:Generator_ColumnPropNameInTable="PeriodOfMonthColumn" msprop:Generator_UserColumnName="PeriodOfMonth" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -1787,9 +1787,15 @@ namespace WorkWear {
             
             private global::System.Data.DataColumn columnID_WorkWear;
             
-            private global::System.Data.DataColumn columnempId;
-            
             private global::System.Data.DataColumn columnID_Job;
+            
+            private global::System.Data.DataColumn columnFullName;
+            
+            private global::System.Data.DataColumn columnExpr1;
+            
+            private global::System.Data.DataColumn columnNameWorkwear;
+            
+            private global::System.Data.DataColumn columnPeriodOfMonth;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -1858,17 +1864,41 @@ namespace WorkWear {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn empIdColumn {
+            public global::System.Data.DataColumn ID_JobColumn {
                 get {
-                    return this.columnempId;
+                    return this.columnID_Job;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ID_JobColumn {
+            public global::System.Data.DataColumn FullNameColumn {
                 get {
-                    return this.columnID_Job;
+                    return this.columnFullName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Expr1Column {
+                get {
+                    return this.columnExpr1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NameWorkwearColumn {
+                get {
+                    return this.columnNameWorkwear;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PeriodOfMonthColumn {
+                get {
+                    return this.columnPeriodOfMonth;
                 }
             }
             
@@ -1909,7 +1939,7 @@ namespace WorkWear {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public IssuanceRow AddIssuanceRow(EmployeeRow parentEmployeeRowByFK_Issuance_Employee, System.DateTime EssuanceDate, WorkWearRow parentWorkWearRowByFK_Issuance_WorkWear, JobRow parentJobRowByFK_Employee_Job1) {
+            public IssuanceRow AddIssuanceRow(EmployeeRow parentEmployeeRowByFK_Issuance_Employee, System.DateTime EssuanceDate, WorkWearRow parentWorkWearRowByFK_Issuance_WorkWear, JobRow parentJobRowByFK_Employee_Job1, string FullName, string NameWorkwear, int PeriodOfMonth) {
                 IssuanceRow rowIssuanceRow = ((IssuanceRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1917,7 +1947,10 @@ namespace WorkWear {
                         EssuanceDate,
                         null,
                         null,
-                        null};
+                        FullName,
+                        null,
+                        NameWorkwear,
+                        PeriodOfMonth};
                 if ((parentEmployeeRowByFK_Issuance_Employee != null)) {
                     columnValuesArray[1] = parentEmployeeRowByFK_Issuance_Employee[0];
                 }
@@ -1925,7 +1958,7 @@ namespace WorkWear {
                     columnValuesArray[3] = parentWorkWearRowByFK_Issuance_WorkWear[0];
                 }
                 if ((parentJobRowByFK_Employee_Job1 != null)) {
-                    columnValuesArray[5] = parentJobRowByFK_Employee_Job1[0];
+                    columnValuesArray[4] = parentJobRowByFK_Employee_Job1[0];
                 }
                 rowIssuanceRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowIssuanceRow);
@@ -1960,8 +1993,11 @@ namespace WorkWear {
                 this.columnID_Employee = base.Columns["ID_Employee"];
                 this.columnEssuanceDate = base.Columns["EssuanceDate"];
                 this.columnID_WorkWear = base.Columns["ID_WorkWear"];
-                this.columnempId = base.Columns["empId"];
                 this.columnID_Job = base.Columns["ID_Job"];
+                this.columnFullName = base.Columns["FullName"];
+                this.columnExpr1 = base.Columns["Expr1"];
+                this.columnNameWorkwear = base.Columns["NameWorkwear"];
+                this.columnPeriodOfMonth = base.Columns["PeriodOfMonth"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1975,10 +2011,16 @@ namespace WorkWear {
                 base.Columns.Add(this.columnEssuanceDate);
                 this.columnID_WorkWear = new global::System.Data.DataColumn("ID_WorkWear", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID_WorkWear);
-                this.columnempId = new global::System.Data.DataColumn("empId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnempId);
                 this.columnID_Job = new global::System.Data.DataColumn("ID_Job", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID_Job);
+                this.columnFullName = new global::System.Data.DataColumn("FullName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFullName);
+                this.columnExpr1 = new global::System.Data.DataColumn("Expr1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnExpr1);
+                this.columnNameWorkwear = new global::System.Data.DataColumn("NameWorkwear", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNameWorkwear);
+                this.columnPeriodOfMonth = new global::System.Data.DataColumn("PeriodOfMonth", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPeriodOfMonth);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID_Issuance}, true));
                 this.columnID_Issuance.AutoIncrement = true;
@@ -1987,11 +2029,13 @@ namespace WorkWear {
                 this.columnID_Issuance.AllowDBNull = false;
                 this.columnID_Issuance.ReadOnly = true;
                 this.columnID_Issuance.Unique = true;
-                this.columnempId.AutoIncrement = true;
-                this.columnempId.AutoIncrementSeed = -1;
-                this.columnempId.AutoIncrementStep = -1;
-                this.columnempId.AllowDBNull = false;
-                this.columnempId.ReadOnly = true;
+                this.columnFullName.ReadOnly = true;
+                this.columnFullName.MaxLength = 41;
+                this.columnExpr1.AutoIncrement = true;
+                this.columnExpr1.AutoIncrementSeed = -1;
+                this.columnExpr1.AutoIncrementStep = -1;
+                this.columnExpr1.ReadOnly = true;
+                this.columnNameWorkwear.MaxLength = 30;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2832,17 +2876,6 @@ namespace WorkWear {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int empId {
-                get {
-                    return ((int)(this[this.tableIssuance.empIdColumn]));
-                }
-                set {
-                    this[this.tableIssuance.empIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int ID_Job {
                 get {
                     try {
@@ -2854,6 +2887,70 @@ namespace WorkWear {
                 }
                 set {
                     this[this.tableIssuance.ID_JobColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string FullName {
+                get {
+                    try {
+                        return ((string)(this[this.tableIssuance.FullNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'FullName\' в таблице \'Issuance\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableIssuance.FullNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Expr1 {
+                get {
+                    try {
+                        return ((int)(this[this.tableIssuance.Expr1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Expr1\' в таблице \'Issuance\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableIssuance.Expr1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string NameWorkwear {
+                get {
+                    try {
+                        return ((string)(this[this.tableIssuance.NameWorkwearColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'NameWorkwear\' в таблице \'Issuance\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableIssuance.NameWorkwearColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int PeriodOfMonth {
+                get {
+                    try {
+                        return ((int)(this[this.tableIssuance.PeriodOfMonthColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'PeriodOfMonth\' в таблице \'Issuance\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableIssuance.PeriodOfMonthColumn] = value;
                 }
             }
             
@@ -2936,6 +3033,54 @@ namespace WorkWear {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetID_JobNull() {
                 this[this.tableIssuance.ID_JobColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFullNameNull() {
+                return this.IsNull(this.tableIssuance.FullNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFullNameNull() {
+                this[this.tableIssuance.FullNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsExpr1Null() {
+                return this.IsNull(this.tableIssuance.Expr1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetExpr1Null() {
+                this[this.tableIssuance.Expr1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNameWorkwearNull() {
+                return this.IsNull(this.tableIssuance.NameWorkwearColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNameWorkwearNull() {
+                this[this.tableIssuance.NameWorkwearColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPeriodOfMonthNull() {
+                return this.IsNull(this.tableIssuance.PeriodOfMonthColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPeriodOfMonthNull() {
+                this[this.tableIssuance.PeriodOfMonthColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5042,8 +5187,11 @@ SELECT ID_Norma, ID_Job, NameWorkwear, PeriodOfMonth FROM Norma WHERE (ID_Norma 
             tableMapping.ColumnMappings.Add("ID_Employee", "ID_Employee");
             tableMapping.ColumnMappings.Add("EssuanceDate", "EssuanceDate");
             tableMapping.ColumnMappings.Add("ID_WorkWear", "ID_WorkWear");
-            tableMapping.ColumnMappings.Add("empId", "empId");
             tableMapping.ColumnMappings.Add("ID_Job", "ID_Job");
+            tableMapping.ColumnMappings.Add("FullName", "FullName");
+            tableMapping.ColumnMappings.Add("Expr1", "Expr1");
+            tableMapping.ColumnMappings.Add("NameWorkwear", "NameWorkwear");
+            tableMapping.ColumnMappings.Add("PeriodOfMonth", "PeriodOfMonth");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -5060,10 +5208,12 @@ SELECT ID_Norma, ID_Job, NameWorkwear, PeriodOfMonth FROM Norma WHERE (ID_Norma 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Issuance.ID_Issuance, Issuance.ID_Employee, Issuance.EssuanceDate, Issuanc" +
-                "e.ID_WorkWear, Employee.ID_Employee AS empId, Employee.ID_Job\r\nFROM     Issuance" +
-                " INNER JOIN\r\n                  Employee ON Issuance.ID_Employee = Employee.ID_Em" +
-                "ployee";
+            this._commandCollection[0].CommandText = @"SELECT Issu.ID_Issuance, Issu.ID_Employee, { fn CONCAT(Emp.LastName, + ' ' + Emp.FirstName) } AS FullName, Emp.ID_Employee AS Expr1, WoWe.ID_WorkWear, WoWe.NameWorkwear, Issu.EssuanceDate, Emp.ID_Job, 
+                  Norm.PeriodOfMonth
+FROM     Issuance AS Issu LEFT OUTER JOIN
+                  WorkWear AS WoWe ON Issu.ID_WorkWear = WoWe.ID_WorkWear LEFT OUTER JOIN
+                  Employee AS Emp ON Issu.ID_Employee = Emp.ID_Employee LEFT OUTER JOIN
+                  Norma AS Norm ON Emp.ID_Job = Norm.ID_Job AND Issu.ID_WorkWear = Norm.NameWorkwear";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
