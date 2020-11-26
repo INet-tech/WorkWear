@@ -32,7 +32,7 @@ namespace WorkWear {
         
         private NormaDataTable tableNorma;
         
-        private IssuanceDataTable tableIssuance;
+        private IssuanceFullDataTable tableIssuanceFull;
         
         private global::System.Data.DataRelation relationFK_Employee_Job;
         
@@ -86,8 +86,8 @@ namespace WorkWear {
                 if ((ds.Tables["Norma"] != null)) {
                     base.Tables.Add(new NormaDataTable(ds.Tables["Norma"]));
                 }
-                if ((ds.Tables["Issuance"] != null)) {
-                    base.Tables.Add(new IssuanceDataTable(ds.Tables["Issuance"]));
+                if ((ds.Tables["IssuanceFull"] != null)) {
+                    base.Tables.Add(new IssuanceFullDataTable(ds.Tables["IssuanceFull"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -151,9 +151,9 @@ namespace WorkWear {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public IssuanceDataTable Issuance {
+        public IssuanceFullDataTable IssuanceFull {
             get {
-                return this.tableIssuance;
+                return this.tableIssuanceFull;
             }
         }
         
@@ -236,8 +236,8 @@ namespace WorkWear {
                 if ((ds.Tables["Norma"] != null)) {
                     base.Tables.Add(new NormaDataTable(ds.Tables["Norma"]));
                 }
-                if ((ds.Tables["Issuance"] != null)) {
-                    base.Tables.Add(new IssuanceDataTable(ds.Tables["Issuance"]));
+                if ((ds.Tables["IssuanceFull"] != null)) {
+                    base.Tables.Add(new IssuanceFullDataTable(ds.Tables["IssuanceFull"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -296,10 +296,10 @@ namespace WorkWear {
                     this.tableNorma.InitVars();
                 }
             }
-            this.tableIssuance = ((IssuanceDataTable)(base.Tables["Issuance"]));
+            this.tableIssuanceFull = ((IssuanceFullDataTable)(base.Tables["IssuanceFull"]));
             if ((initTable == true)) {
-                if ((this.tableIssuance != null)) {
-                    this.tableIssuance.InitVars();
+                if ((this.tableIssuanceFull != null)) {
+                    this.tableIssuanceFull.InitVars();
                 }
             }
             this.relationFK_Employee_Job = this.Relations["FK_Employee_Job"];
@@ -326,8 +326,8 @@ namespace WorkWear {
             base.Tables.Add(this.tableWorkWear);
             this.tableNorma = new NormaDataTable();
             base.Tables.Add(this.tableNorma);
-            this.tableIssuance = new IssuanceDataTable();
-            base.Tables.Add(this.tableIssuance);
+            this.tableIssuanceFull = new IssuanceFullDataTable();
+            base.Tables.Add(this.tableIssuanceFull);
             this.relationFK_Employee_Job = new global::System.Data.DataRelation("FK_Employee_Job", new global::System.Data.DataColumn[] {
                         this.tableJob.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableEmployee.ID_JobColumn}, false);
@@ -342,15 +342,15 @@ namespace WorkWear {
             this.Relations.Add(this.relationFK_Norma_WorkWear1);
             this.relationFK_Issuance_Employee = new global::System.Data.DataRelation("FK_Issuance_Employee", new global::System.Data.DataColumn[] {
                         this.tableEmployee.ID_EmployeeColumn}, new global::System.Data.DataColumn[] {
-                        this.tableIssuance.ID_EmployeeColumn}, false);
+                        this.tableIssuanceFull.ID_EmployeeColumn}, false);
             this.Relations.Add(this.relationFK_Issuance_Employee);
             this.relationFK_Issuance_WorkWear = new global::System.Data.DataRelation("FK_Issuance_WorkWear", new global::System.Data.DataColumn[] {
                         this.tableWorkWear.ID_WorkWearColumn}, new global::System.Data.DataColumn[] {
-                        this.tableIssuance.ID_WorkWearColumn}, false);
+                        this.tableIssuanceFull.ID_WorkWearColumn}, false);
             this.Relations.Add(this.relationFK_Issuance_WorkWear);
             this.relationFK_Employee_Job1 = new global::System.Data.DataRelation("FK_Employee_Job1", new global::System.Data.DataColumn[] {
                         this.tableJob.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableIssuance.ID_JobColumn}, false);
+                        this.tableIssuanceFull.ID_JobColumn}, false);
             this.Relations.Add(this.relationFK_Employee_Job1);
         }
         
@@ -380,7 +380,7 @@ namespace WorkWear {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeIssuance() {
+        private bool ShouldSerializeIssuanceFull() {
             return false;
         }
         
@@ -452,7 +452,7 @@ namespace WorkWear {
         public delegate void NormaRowChangeEventHandler(object sender, NormaRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void IssuanceRowChangeEventHandler(object sender, IssuanceRowChangeEvent e);
+        public delegate void IssuanceFullRowChangeEventHandler(object sender, IssuanceFullRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1777,7 +1777,7 @@ namespace WorkWear {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class IssuanceDataTable : global::System.Data.TypedTableBase<IssuanceRow> {
+        public partial class IssuanceFullDataTable : global::System.Data.TypedTableBase<IssuanceFullRow> {
             
             private global::System.Data.DataColumn columnID_Issuance;
             
@@ -1791,16 +1791,16 @@ namespace WorkWear {
             
             private global::System.Data.DataColumn columnFullName;
             
-            private global::System.Data.DataColumn columnExpr1;
-            
             private global::System.Data.DataColumn columnNameWorkwear;
             
             private global::System.Data.DataColumn columnPeriodOfMonth;
             
+            private global::System.Data.DataColumn columnEnfOfSocks;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public IssuanceDataTable() {
-                this.TableName = "Issuance";
+            public IssuanceFullDataTable() {
+                this.TableName = "IssuanceFull";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1808,7 +1808,7 @@ namespace WorkWear {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal IssuanceDataTable(global::System.Data.DataTable table) {
+            internal IssuanceFullDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1825,7 +1825,7 @@ namespace WorkWear {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected IssuanceDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected IssuanceFullDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -1880,14 +1880,6 @@ namespace WorkWear {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Expr1Column {
-                get {
-                    return this.columnExpr1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn NameWorkwearColumn {
                 get {
                     return this.columnNameWorkwear;
@@ -1904,6 +1896,14 @@ namespace WorkWear {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn EnfOfSocksColumn {
+                get {
+                    return this.columnEnfOfSocks;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1913,34 +1913,34 @@ namespace WorkWear {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public IssuanceRow this[int index] {
+            public IssuanceFullRow this[int index] {
                 get {
-                    return ((IssuanceRow)(this.Rows[index]));
+                    return ((IssuanceFullRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event IssuanceRowChangeEventHandler IssuanceRowChanging;
+            public event IssuanceFullRowChangeEventHandler IssuanceFullRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event IssuanceRowChangeEventHandler IssuanceRowChanged;
+            public event IssuanceFullRowChangeEventHandler IssuanceFullRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event IssuanceRowChangeEventHandler IssuanceRowDeleting;
+            public event IssuanceFullRowChangeEventHandler IssuanceFullRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event IssuanceRowChangeEventHandler IssuanceRowDeleted;
+            public event IssuanceFullRowChangeEventHandler IssuanceFullRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddIssuanceRow(IssuanceRow row) {
+            public void AddIssuanceFullRow(IssuanceFullRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public IssuanceRow AddIssuanceRow(EmployeeRow parentEmployeeRowByFK_Issuance_Employee, System.DateTime EssuanceDate, WorkWearRow parentWorkWearRowByFK_Issuance_WorkWear, JobRow parentJobRowByFK_Employee_Job1, string FullName, string NameWorkwear, int PeriodOfMonth) {
-                IssuanceRow rowIssuanceRow = ((IssuanceRow)(this.NewRow()));
+            public IssuanceFullRow AddIssuanceFullRow(EmployeeRow parentEmployeeRowByFK_Issuance_Employee, System.DateTime EssuanceDate, WorkWearRow parentWorkWearRowByFK_Issuance_WorkWear, JobRow parentJobRowByFK_Employee_Job1, string FullName, string NameWorkwear, int PeriodOfMonth, System.DateTime EnfOfSocks) {
+                IssuanceFullRow rowIssuanceFullRow = ((IssuanceFullRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
@@ -1948,9 +1948,9 @@ namespace WorkWear {
                         null,
                         null,
                         FullName,
-                        null,
                         NameWorkwear,
-                        PeriodOfMonth};
+                        PeriodOfMonth,
+                        EnfOfSocks};
                 if ((parentEmployeeRowByFK_Issuance_Employee != null)) {
                     columnValuesArray[1] = parentEmployeeRowByFK_Issuance_Employee[0];
                 }
@@ -1960,22 +1960,22 @@ namespace WorkWear {
                 if ((parentJobRowByFK_Employee_Job1 != null)) {
                     columnValuesArray[4] = parentJobRowByFK_Employee_Job1[0];
                 }
-                rowIssuanceRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowIssuanceRow);
-                return rowIssuanceRow;
+                rowIssuanceFullRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowIssuanceFullRow);
+                return rowIssuanceFullRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public IssuanceRow FindByID_Issuance(int ID_Issuance) {
-                return ((IssuanceRow)(this.Rows.Find(new object[] {
+            public IssuanceFullRow FindByID_Issuance(int ID_Issuance) {
+                return ((IssuanceFullRow)(this.Rows.Find(new object[] {
                             ID_Issuance})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                IssuanceDataTable cln = ((IssuanceDataTable)(base.Clone()));
+                IssuanceFullDataTable cln = ((IssuanceFullDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1983,7 +1983,7 @@ namespace WorkWear {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new IssuanceDataTable();
+                return new IssuanceFullDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1995,9 +1995,9 @@ namespace WorkWear {
                 this.columnID_WorkWear = base.Columns["ID_WorkWear"];
                 this.columnID_Job = base.Columns["ID_Job"];
                 this.columnFullName = base.Columns["FullName"];
-                this.columnExpr1 = base.Columns["Expr1"];
                 this.columnNameWorkwear = base.Columns["NameWorkwear"];
                 this.columnPeriodOfMonth = base.Columns["PeriodOfMonth"];
+                this.columnEnfOfSocks = base.Columns["EnfOfSocks"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2015,12 +2015,12 @@ namespace WorkWear {
                 base.Columns.Add(this.columnID_Job);
                 this.columnFullName = new global::System.Data.DataColumn("FullName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFullName);
-                this.columnExpr1 = new global::System.Data.DataColumn("Expr1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnExpr1);
                 this.columnNameWorkwear = new global::System.Data.DataColumn("NameWorkwear", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNameWorkwear);
                 this.columnPeriodOfMonth = new global::System.Data.DataColumn("PeriodOfMonth", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPeriodOfMonth);
+                this.columnEnfOfSocks = new global::System.Data.DataColumn("EnfOfSocks", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEnfOfSocks);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID_Issuance}, true));
                 this.columnID_Issuance.AutoIncrement = true;
@@ -2031,37 +2031,34 @@ namespace WorkWear {
                 this.columnID_Issuance.Unique = true;
                 this.columnFullName.ReadOnly = true;
                 this.columnFullName.MaxLength = 41;
-                this.columnExpr1.AutoIncrement = true;
-                this.columnExpr1.AutoIncrementSeed = -1;
-                this.columnExpr1.AutoIncrementStep = -1;
-                this.columnExpr1.ReadOnly = true;
                 this.columnNameWorkwear.MaxLength = 30;
+                this.columnEnfOfSocks.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public IssuanceRow NewIssuanceRow() {
-                return ((IssuanceRow)(this.NewRow()));
+            public IssuanceFullRow NewIssuanceFullRow() {
+                return ((IssuanceFullRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new IssuanceRow(builder);
+                return new IssuanceFullRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(IssuanceRow);
+                return typeof(IssuanceFullRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.IssuanceRowChanged != null)) {
-                    this.IssuanceRowChanged(this, new IssuanceRowChangeEvent(((IssuanceRow)(e.Row)), e.Action));
+                if ((this.IssuanceFullRowChanged != null)) {
+                    this.IssuanceFullRowChanged(this, new IssuanceFullRowChangeEvent(((IssuanceFullRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2069,8 +2066,8 @@ namespace WorkWear {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.IssuanceRowChanging != null)) {
-                    this.IssuanceRowChanging(this, new IssuanceRowChangeEvent(((IssuanceRow)(e.Row)), e.Action));
+                if ((this.IssuanceFullRowChanging != null)) {
+                    this.IssuanceFullRowChanging(this, new IssuanceFullRowChangeEvent(((IssuanceFullRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2078,8 +2075,8 @@ namespace WorkWear {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.IssuanceRowDeleted != null)) {
-                    this.IssuanceRowDeleted(this, new IssuanceRowChangeEvent(((IssuanceRow)(e.Row)), e.Action));
+                if ((this.IssuanceFullRowDeleted != null)) {
+                    this.IssuanceFullRowDeleted(this, new IssuanceFullRowChangeEvent(((IssuanceFullRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2087,14 +2084,14 @@ namespace WorkWear {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.IssuanceRowDeleting != null)) {
-                    this.IssuanceRowDeleting(this, new IssuanceRowChangeEvent(((IssuanceRow)(e.Row)), e.Action));
+                if ((this.IssuanceFullRowDeleting != null)) {
+                    this.IssuanceFullRowDeleting(this, new IssuanceFullRowChangeEvent(((IssuanceFullRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveIssuanceRow(IssuanceRow row) {
+            public void RemoveIssuanceFullRow(IssuanceFullRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -2121,7 +2118,7 @@ namespace WorkWear {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "IssuanceDataTable";
+                attribute2.FixedValue = "IssuanceFullDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2463,12 +2460,12 @@ namespace WorkWear {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public IssuanceRow[] GetIssuanceRows() {
+            public IssuanceFullRow[] GetIssuanceFullRows() {
                 if ((this.Table.ChildRelations["FK_Issuance_Employee"] == null)) {
-                    return new IssuanceRow[0];
+                    return new IssuanceFullRow[0];
                 }
                 else {
-                    return ((IssuanceRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Issuance_Employee"])));
+                    return ((IssuanceFullRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Issuance_Employee"])));
                 }
             }
         }
@@ -2544,12 +2541,12 @@ namespace WorkWear {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public IssuanceRow[] GetIssuanceRows() {
+            public IssuanceFullRow[] GetIssuanceFullRows() {
                 if ((this.Table.ChildRelations["FK_Employee_Job1"] == null)) {
-                    return new IssuanceRow[0];
+                    return new IssuanceFullRow[0];
                 }
                 else {
-                    return ((IssuanceRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Employee_Job1"])));
+                    return ((IssuanceFullRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Employee_Job1"])));
                 }
             }
         }
@@ -2659,12 +2656,12 @@ namespace WorkWear {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public IssuanceRow[] GetIssuanceRows() {
+            public IssuanceFullRow[] GetIssuanceFullRows() {
                 if ((this.Table.ChildRelations["FK_Issuance_WorkWear"] == null)) {
-                    return new IssuanceRow[0];
+                    return new IssuanceFullRow[0];
                 }
                 else {
-                    return ((IssuanceRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Issuance_WorkWear"])));
+                    return ((IssuanceFullRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Issuance_WorkWear"])));
                 }
             }
         }
@@ -2804,25 +2801,25 @@ namespace WorkWear {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class IssuanceRow : global::System.Data.DataRow {
+        public partial class IssuanceFullRow : global::System.Data.DataRow {
             
-            private IssuanceDataTable tableIssuance;
+            private IssuanceFullDataTable tableIssuanceFull;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal IssuanceRow(global::System.Data.DataRowBuilder rb) : 
+            internal IssuanceFullRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableIssuance = ((IssuanceDataTable)(this.Table));
+                this.tableIssuanceFull = ((IssuanceFullDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int ID_Issuance {
                 get {
-                    return ((int)(this[this.tableIssuance.ID_IssuanceColumn]));
+                    return ((int)(this[this.tableIssuanceFull.ID_IssuanceColumn]));
                 }
                 set {
-                    this[this.tableIssuance.ID_IssuanceColumn] = value;
+                    this[this.tableIssuanceFull.ID_IssuanceColumn] = value;
                 }
             }
             
@@ -2831,14 +2828,14 @@ namespace WorkWear {
             public int ID_Employee {
                 get {
                     try {
-                        return ((int)(this[this.tableIssuance.ID_EmployeeColumn]));
+                        return ((int)(this[this.tableIssuanceFull.ID_EmployeeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ID_Employee\' в таблице \'Issuance\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ID_Employee\' в таблице \'IssuanceFull\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableIssuance.ID_EmployeeColumn] = value;
+                    this[this.tableIssuanceFull.ID_EmployeeColumn] = value;
                 }
             }
             
@@ -2847,14 +2844,14 @@ namespace WorkWear {
             public System.DateTime EssuanceDate {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableIssuance.EssuanceDateColumn]));
+                        return ((global::System.DateTime)(this[this.tableIssuanceFull.EssuanceDateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'EssuanceDate\' в таблице \'Issuance\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'EssuanceDate\' в таблице \'IssuanceFull\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableIssuance.EssuanceDateColumn] = value;
+                    this[this.tableIssuanceFull.EssuanceDateColumn] = value;
                 }
             }
             
@@ -2863,14 +2860,14 @@ namespace WorkWear {
             public int ID_WorkWear {
                 get {
                     try {
-                        return ((int)(this[this.tableIssuance.ID_WorkWearColumn]));
+                        return ((int)(this[this.tableIssuanceFull.ID_WorkWearColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ID_WorkWear\' в таблице \'Issuance\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ID_WorkWear\' в таблице \'IssuanceFull\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableIssuance.ID_WorkWearColumn] = value;
+                    this[this.tableIssuanceFull.ID_WorkWearColumn] = value;
                 }
             }
             
@@ -2879,14 +2876,14 @@ namespace WorkWear {
             public int ID_Job {
                 get {
                     try {
-                        return ((int)(this[this.tableIssuance.ID_JobColumn]));
+                        return ((int)(this[this.tableIssuanceFull.ID_JobColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ID_Job\' в таблице \'Issuance\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ID_Job\' в таблице \'IssuanceFull\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableIssuance.ID_JobColumn] = value;
+                    this[this.tableIssuanceFull.ID_JobColumn] = value;
                 }
             }
             
@@ -2895,30 +2892,14 @@ namespace WorkWear {
             public string FullName {
                 get {
                     try {
-                        return ((string)(this[this.tableIssuance.FullNameColumn]));
+                        return ((string)(this[this.tableIssuanceFull.FullNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'FullName\' в таблице \'Issuance\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'FullName\' в таблице \'IssuanceFull\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableIssuance.FullNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Expr1 {
-                get {
-                    try {
-                        return ((int)(this[this.tableIssuance.Expr1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Expr1\' в таблице \'Issuance\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableIssuance.Expr1Column] = value;
+                    this[this.tableIssuanceFull.FullNameColumn] = value;
                 }
             }
             
@@ -2927,14 +2908,14 @@ namespace WorkWear {
             public string NameWorkwear {
                 get {
                     try {
-                        return ((string)(this[this.tableIssuance.NameWorkwearColumn]));
+                        return ((string)(this[this.tableIssuanceFull.NameWorkwearColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'NameWorkwear\' в таблице \'Issuance\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'NameWorkwear\' в таблице \'IssuanceFull\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableIssuance.NameWorkwearColumn] = value;
+                    this[this.tableIssuanceFull.NameWorkwearColumn] = value;
                 }
             }
             
@@ -2943,14 +2924,30 @@ namespace WorkWear {
             public int PeriodOfMonth {
                 get {
                     try {
-                        return ((int)(this[this.tableIssuance.PeriodOfMonthColumn]));
+                        return ((int)(this[this.tableIssuanceFull.PeriodOfMonthColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'PeriodOfMonth\' в таблице \'Issuance\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'PeriodOfMonth\' в таблице \'IssuanceFull\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableIssuance.PeriodOfMonthColumn] = value;
+                    this[this.tableIssuanceFull.PeriodOfMonthColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime EnfOfSocks {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableIssuanceFull.EnfOfSocksColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'EnfOfSocks\' в таблице \'IssuanceFull\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableIssuanceFull.EnfOfSocksColumn] = value;
                 }
             }
             
@@ -2990,97 +2987,97 @@ namespace WorkWear {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsID_EmployeeNull() {
-                return this.IsNull(this.tableIssuance.ID_EmployeeColumn);
+                return this.IsNull(this.tableIssuanceFull.ID_EmployeeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetID_EmployeeNull() {
-                this[this.tableIssuance.ID_EmployeeColumn] = global::System.Convert.DBNull;
+                this[this.tableIssuanceFull.ID_EmployeeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsEssuanceDateNull() {
-                return this.IsNull(this.tableIssuance.EssuanceDateColumn);
+                return this.IsNull(this.tableIssuanceFull.EssuanceDateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetEssuanceDateNull() {
-                this[this.tableIssuance.EssuanceDateColumn] = global::System.Convert.DBNull;
+                this[this.tableIssuanceFull.EssuanceDateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsID_WorkWearNull() {
-                return this.IsNull(this.tableIssuance.ID_WorkWearColumn);
+                return this.IsNull(this.tableIssuanceFull.ID_WorkWearColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetID_WorkWearNull() {
-                this[this.tableIssuance.ID_WorkWearColumn] = global::System.Convert.DBNull;
+                this[this.tableIssuanceFull.ID_WorkWearColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsID_JobNull() {
-                return this.IsNull(this.tableIssuance.ID_JobColumn);
+                return this.IsNull(this.tableIssuanceFull.ID_JobColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetID_JobNull() {
-                this[this.tableIssuance.ID_JobColumn] = global::System.Convert.DBNull;
+                this[this.tableIssuanceFull.ID_JobColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsFullNameNull() {
-                return this.IsNull(this.tableIssuance.FullNameColumn);
+                return this.IsNull(this.tableIssuanceFull.FullNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetFullNameNull() {
-                this[this.tableIssuance.FullNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsExpr1Null() {
-                return this.IsNull(this.tableIssuance.Expr1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetExpr1Null() {
-                this[this.tableIssuance.Expr1Column] = global::System.Convert.DBNull;
+                this[this.tableIssuanceFull.FullNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsNameWorkwearNull() {
-                return this.IsNull(this.tableIssuance.NameWorkwearColumn);
+                return this.IsNull(this.tableIssuanceFull.NameWorkwearColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetNameWorkwearNull() {
-                this[this.tableIssuance.NameWorkwearColumn] = global::System.Convert.DBNull;
+                this[this.tableIssuanceFull.NameWorkwearColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsPeriodOfMonthNull() {
-                return this.IsNull(this.tableIssuance.PeriodOfMonthColumn);
+                return this.IsNull(this.tableIssuanceFull.PeriodOfMonthColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetPeriodOfMonthNull() {
-                this[this.tableIssuance.PeriodOfMonthColumn] = global::System.Convert.DBNull;
+                this[this.tableIssuanceFull.PeriodOfMonthColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsEnfOfSocksNull() {
+                return this.IsNull(this.tableIssuanceFull.EnfOfSocksColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetEnfOfSocksNull() {
+                this[this.tableIssuanceFull.EnfOfSocksColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3224,22 +3221,22 @@ namespace WorkWear {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class IssuanceRowChangeEvent : global::System.EventArgs {
+        public class IssuanceFullRowChangeEvent : global::System.EventArgs {
             
-            private IssuanceRow eventRow;
+            private IssuanceFullRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public IssuanceRowChangeEvent(IssuanceRow row, global::System.Data.DataRowAction action) {
+            public IssuanceFullRowChangeEvent(IssuanceFullRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public IssuanceRow Row {
+            public IssuanceFullRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -5071,7 +5068,7 @@ SELECT ID_Norma, ID_Job, NameWorkwear, PeriodOfMonth FROM Norma WHERE (ID_Norma 
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class IssuanceTableAdapter : global::System.ComponentModel.Component {
+    public partial class IssuanceFullTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -5085,7 +5082,7 @@ SELECT ID_Norma, ID_Job, NameWorkwear, PeriodOfMonth FROM Norma WHERE (ID_Norma 
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public IssuanceTableAdapter() {
+        public IssuanceFullTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -5182,16 +5179,16 @@ SELECT ID_Norma, ID_Job, NameWorkwear, PeriodOfMonth FROM Norma WHERE (ID_Norma 
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Issuance";
+            tableMapping.DataSetTable = "IssuanceFull";
             tableMapping.ColumnMappings.Add("ID_Issuance", "ID_Issuance");
             tableMapping.ColumnMappings.Add("ID_Employee", "ID_Employee");
             tableMapping.ColumnMappings.Add("EssuanceDate", "EssuanceDate");
             tableMapping.ColumnMappings.Add("ID_WorkWear", "ID_WorkWear");
             tableMapping.ColumnMappings.Add("ID_Job", "ID_Job");
             tableMapping.ColumnMappings.Add("FullName", "FullName");
-            tableMapping.ColumnMappings.Add("Expr1", "Expr1");
             tableMapping.ColumnMappings.Add("NameWorkwear", "NameWorkwear");
             tableMapping.ColumnMappings.Add("PeriodOfMonth", "PeriodOfMonth");
+            tableMapping.ColumnMappings.Add("EnfOfSocks", "EnfOfSocks");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -5208,8 +5205,8 @@ SELECT ID_Norma, ID_Job, NameWorkwear, PeriodOfMonth FROM Norma WHERE (ID_Norma 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT Issu.ID_Issuance, Issu.ID_Employee, { fn CONCAT(Emp.LastName, + ' ' + Emp.FirstName) } AS FullName, Emp.ID_Employee AS Expr1, WoWe.ID_WorkWear, WoWe.NameWorkwear, Issu.EssuanceDate, Emp.ID_Job, 
-                  Norm.PeriodOfMonth
+            this._commandCollection[0].CommandText = @"SELECT Issu.ID_Issuance, Issu.ID_Employee, { fn CONCAT(Emp.LastName, + ' ' + Emp.FirstName) } AS FullName, Emp.ID_Job, WoWe.ID_WorkWear, WoWe.NameWorkwear, Norm.PeriodOfMonth, Issu.EssuanceDate, DATEADD(month, 
+                  Norm.PeriodOfMonth, Issu.EssuanceDate) AS EnfOfSocks
 FROM     Issuance AS Issu LEFT OUTER JOIN
                   WorkWear AS WoWe ON Issu.ID_WorkWear = WoWe.ID_WorkWear LEFT OUTER JOIN
                   Employee AS Emp ON Issu.ID_Employee = Emp.ID_Employee LEFT OUTER JOIN
@@ -5221,7 +5218,7 @@ FROM     Issuance AS Issu LEFT OUTER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(WorkWearDBDataSet.IssuanceDataTable dataTable) {
+        public virtual int Fill(WorkWearDBDataSet.IssuanceFullDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5234,9 +5231,9 @@ FROM     Issuance AS Issu LEFT OUTER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual WorkWearDBDataSet.IssuanceDataTable GetData() {
+        public virtual WorkWearDBDataSet.IssuanceFullDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            WorkWearDBDataSet.IssuanceDataTable dataTable = new WorkWearDBDataSet.IssuanceDataTable();
+            WorkWearDBDataSet.IssuanceFullDataTable dataTable = new WorkWearDBDataSet.IssuanceFullDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

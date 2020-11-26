@@ -18,6 +18,12 @@ namespace WorkWear
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "workWearDBDataSet1.IssuanceFull". При необходимости она может быть перемещена или удалена.
+            this.issuanceFullTableAdapter.Fill(this.workWearDBDataSet1.IssuanceFull);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "workWearDBDataSet.IssuanceFull". При необходимости она может быть перемещена или удалена.
+            this.issuanceFullTableAdapter.Fill(this.workWearDBDataSet.IssuanceFull);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "workWearDBDataSet.Issuance". При необходимости она может быть перемещена или удалена.
+            this.issuanceFullTableAdapter.Fill(this.workWearDBDataSet.IssuanceFull);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "workWearDBDataSet.Job". При необходимости она может быть перемещена или удалена.
             this.jobTableAdapter.Fill(this.workWearDBDataSet.Job);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "workWearDBDataSet.Employee". При необходимости она может быть перемещена или удалена.

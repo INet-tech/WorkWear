@@ -297,13 +297,13 @@ SELECT ID_Norma, ID_Job, NameWorkwear, PeriodOfMonth FROM Norma WHERE (ID_Norma 
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="IssuanceTableAdapter" GeneratorDataComponentClassName="IssuanceTableAdapter" Name="Issuance" UserDataComponentName="IssuanceTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="IssuanceFullTableAdapter" GeneratorDataComponentClassName="IssuanceFullTableAdapter" Name="IssuanceFull" UserDataComponentName="IssuanceFullTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="WorkWearDBConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT Issu.ID_Issuance, Issu.ID_Employee, { fn CONCAT(Emp.LastName, + ' ' + Emp.FirstName) } AS FullName, Emp.ID_Employee AS Expr1, WoWe.ID_WorkWear, WoWe.NameWorkwear, Issu.EssuanceDate, Emp.ID_Job, 
-                  Norm.PeriodOfMonth
+                    <CommandText>SELECT Issu.ID_Issuance, Issu.ID_Employee, { fn CONCAT(Emp.LastName, + ' ' + Emp.FirstName) } AS FullName, Emp.ID_Job, WoWe.ID_WorkWear, WoWe.NameWorkwear, Norm.PeriodOfMonth, Issu.EssuanceDate, DATEADD(month, 
+                  Norm.PeriodOfMonth, Issu.EssuanceDate) AS EnfOfSocks
 FROM     Issuance AS Issu LEFT OUTER JOIN
                   WorkWear AS WoWe ON Issu.ID_WorkWear = WoWe.ID_WorkWear LEFT OUTER JOIN
                   Employee AS Emp ON Issu.ID_Employee = Emp.ID_Employee LEFT OUTER JOIN
@@ -320,9 +320,9 @@ FROM     Issuance AS Issu LEFT OUTER JOIN
               <Mapping SourceColumn="ID_WorkWear" DataSetColumn="ID_WorkWear" />
               <Mapping SourceColumn="ID_Job" DataSetColumn="ID_Job" />
               <Mapping SourceColumn="FullName" DataSetColumn="FullName" />
-              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
               <Mapping SourceColumn="NameWorkwear" DataSetColumn="NameWorkwear" />
               <Mapping SourceColumn="PeriodOfMonth" DataSetColumn="PeriodOfMonth" />
+              <Mapping SourceColumn="EnfOfSocks" DataSetColumn="EnfOfSocks" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -334,7 +334,7 @@ FROM     Issuance AS Issu LEFT OUTER JOIN
   <xs:element name="WorkWearDBDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="WorkWearDBDataSet" msprop:Generator_UserDSName="WorkWearDBDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Employee" msprop:Generator_TableClassName="EmployeeDataTable" msprop:Generator_TableVarName="tableEmployee" msprop:Generator_RowChangedName="EmployeeRowChanged" msprop:Generator_TablePropName="Employee" msprop:Generator_RowDeletingName="EmployeeRowDeleting" msprop:Generator_RowChangingName="EmployeeRowChanging" msprop:Generator_RowEvHandlerName="EmployeeRowChangeEventHandler" msprop:Generator_RowDeletedName="EmployeeRowDeleted" msprop:Generator_RowClassName="EmployeeRow" msprop:Generator_UserTableName="Employee" msprop:Generator_RowEvArgName="EmployeeRowChangeEvent">
+        <xs:element name="Employee" msprop:Generator_TableClassName="EmployeeDataTable" msprop:Generator_TableVarName="tableEmployee" msprop:Generator_TablePropName="Employee" msprop:Generator_RowDeletingName="EmployeeRowDeleting" msprop:Generator_RowChangingName="EmployeeRowChanging" msprop:Generator_RowEvHandlerName="EmployeeRowChangeEventHandler" msprop:Generator_RowDeletedName="EmployeeRowDeleted" msprop:Generator_UserTableName="Employee" msprop:Generator_RowChangedName="EmployeeRowChanged" msprop:Generator_RowEvArgName="EmployeeRowChangeEvent" msprop:Generator_RowClassName="EmployeeRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID_Employee" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID_Employee" msprop:Generator_ColumnPropNameInRow="ID_Employee" msprop:Generator_ColumnPropNameInTable="ID_EmployeeColumn" msprop:Generator_UserColumnName="ID_Employee" type="xs:int" />
@@ -375,7 +375,7 @@ FROM     Issuance AS Issu LEFT OUTER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Job" msprop:Generator_TableClassName="JobDataTable" msprop:Generator_TableVarName="tableJob" msprop:Generator_TablePropName="Job" msprop:Generator_RowDeletingName="JobRowDeleting" msprop:Generator_RowChangingName="JobRowChanging" msprop:Generator_RowEvHandlerName="JobRowChangeEventHandler" msprop:Generator_RowDeletedName="JobRowDeleted" msprop:Generator_UserTableName="Job" msprop:Generator_RowChangedName="JobRowChanged" msprop:Generator_RowEvArgName="JobRowChangeEvent" msprop:Generator_RowClassName="JobRow">
+        <xs:element name="Job" msprop:Generator_TableClassName="JobDataTable" msprop:Generator_TableVarName="tableJob" msprop:Generator_RowChangedName="JobRowChanged" msprop:Generator_TablePropName="Job" msprop:Generator_RowDeletingName="JobRowDeleting" msprop:Generator_RowChangingName="JobRowChanging" msprop:Generator_RowEvHandlerName="JobRowChangeEventHandler" msprop:Generator_RowDeletedName="JobRowDeleted" msprop:Generator_RowClassName="JobRow" msprop:Generator_UserTableName="Job" msprop:Generator_RowEvArgName="JobRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -396,7 +396,7 @@ FROM     Issuance AS Issu LEFT OUTER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="WorkWear" msprop:Generator_TableClassName="WorkWearDataTable" msprop:Generator_TableVarName="tableWorkWear" msprop:Generator_RowChangedName="WorkWearRowChanged" msprop:Generator_TablePropName="WorkWear" msprop:Generator_RowDeletingName="WorkWearRowDeleting" msprop:Generator_RowChangingName="WorkWearRowChanging" msprop:Generator_RowEvHandlerName="WorkWearRowChangeEventHandler" msprop:Generator_RowDeletedName="WorkWearRowDeleted" msprop:Generator_RowClassName="WorkWearRow" msprop:Generator_UserTableName="WorkWear" msprop:Generator_RowEvArgName="WorkWearRowChangeEvent">
+        <xs:element name="WorkWear" msprop:Generator_TableClassName="WorkWearDataTable" msprop:Generator_TableVarName="tableWorkWear" msprop:Generator_TablePropName="WorkWear" msprop:Generator_RowDeletingName="WorkWearRowDeleting" msprop:Generator_RowChangingName="WorkWearRowChanging" msprop:Generator_RowEvHandlerName="WorkWearRowChangeEventHandler" msprop:Generator_RowDeletedName="WorkWearRowDeleted" msprop:Generator_UserTableName="WorkWear" msprop:Generator_RowChangedName="WorkWearRowChanged" msprop:Generator_RowEvArgName="WorkWearRowChangeEvent" msprop:Generator_RowClassName="WorkWearRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID_WorkWear" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID_WorkWear" msprop:Generator_ColumnPropNameInRow="ID_WorkWear" msprop:Generator_ColumnPropNameInTable="ID_WorkWearColumn" msprop:Generator_UserColumnName="ID_WorkWear" type="xs:int" />
@@ -424,7 +424,7 @@ FROM     Issuance AS Issu LEFT OUTER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Norma" msprop:Generator_TableClassName="NormaDataTable" msprop:Generator_TableVarName="tableNorma" msprop:Generator_RowChangedName="NormaRowChanged" msprop:Generator_TablePropName="Norma" msprop:Generator_RowDeletingName="NormaRowDeleting" msprop:Generator_RowChangingName="NormaRowChanging" msprop:Generator_RowEvHandlerName="NormaRowChangeEventHandler" msprop:Generator_RowDeletedName="NormaRowDeleted" msprop:Generator_RowClassName="NormaRow" msprop:Generator_UserTableName="Norma" msprop:Generator_RowEvArgName="NormaRowChangeEvent">
+        <xs:element name="Norma" msprop:Generator_TableClassName="NormaDataTable" msprop:Generator_TableVarName="tableNorma" msprop:Generator_TablePropName="Norma" msprop:Generator_RowDeletingName="NormaRowDeleting" msprop:Generator_RowChangingName="NormaRowChanging" msprop:Generator_RowEvHandlerName="NormaRowChangeEventHandler" msprop:Generator_RowDeletedName="NormaRowDeleted" msprop:Generator_UserTableName="Norma" msprop:Generator_RowChangedName="NormaRowChanged" msprop:Generator_RowEvArgName="NormaRowChangeEvent" msprop:Generator_RowClassName="NormaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID_Norma" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID_Norma" msprop:Generator_ColumnPropNameInRow="ID_Norma" msprop:Generator_ColumnPropNameInTable="ID_NormaColumn" msprop:Generator_UserColumnName="ID_Norma" type="xs:int" />
@@ -434,7 +434,7 @@ FROM     Issuance AS Issu LEFT OUTER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Issuance" msprop:Generator_TableClassName="IssuanceDataTable" msprop:Generator_TableVarName="tableIssuance" msprop:Generator_RowChangedName="IssuanceRowChanged" msprop:Generator_TablePropName="Issuance" msprop:Generator_RowDeletingName="IssuanceRowDeleting" msprop:Generator_RowChangingName="IssuanceRowChanging" msprop:Generator_RowEvHandlerName="IssuanceRowChangeEventHandler" msprop:Generator_RowDeletedName="IssuanceRowDeleted" msprop:Generator_RowClassName="IssuanceRow" msprop:Generator_UserTableName="Issuance" msprop:Generator_RowEvArgName="IssuanceRowChangeEvent">
+        <xs:element name="IssuanceFull" msprop:Generator_TableClassName="IssuanceFullDataTable" msprop:Generator_TableVarName="tableIssuanceFull" msprop:Generator_TablePropName="IssuanceFull" msprop:Generator_RowDeletingName="IssuanceFullRowDeleting" msprop:Generator_RowChangingName="IssuanceFullRowChanging" msprop:Generator_RowEvHandlerName="IssuanceFullRowChangeEventHandler" msprop:Generator_RowDeletedName="IssuanceFullRowDeleted" msprop:Generator_UserTableName="IssuanceFull" msprop:Generator_RowChangedName="IssuanceFullRowChanged" msprop:Generator_RowEvArgName="IssuanceFullRowChangeEvent" msprop:Generator_RowClassName="IssuanceFullRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID_Issuance" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID_Issuance" msprop:Generator_ColumnPropNameInRow="ID_Issuance" msprop:Generator_ColumnPropNameInTable="ID_IssuanceColumn" msprop:Generator_UserColumnName="ID_Issuance" type="xs:int" />
@@ -449,7 +449,6 @@ FROM     Issuance AS Issu LEFT OUTER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Expr1" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1" type="xs:int" minOccurs="0" />
               <xs:element name="NameWorkwear" msprop:Generator_ColumnVarNameInTable="columnNameWorkwear" msprop:Generator_ColumnPropNameInRow="NameWorkwear" msprop:Generator_ColumnPropNameInTable="NameWorkwearColumn" msprop:Generator_UserColumnName="NameWorkwear" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -458,6 +457,7 @@ FROM     Issuance AS Issu LEFT OUTER JOIN
                 </xs:simpleType>
               </xs:element>
               <xs:element name="PeriodOfMonth" msprop:Generator_ColumnVarNameInTable="columnPeriodOfMonth" msprop:Generator_ColumnPropNameInRow="PeriodOfMonth" msprop:Generator_ColumnPropNameInTable="PeriodOfMonthColumn" msprop:Generator_UserColumnName="PeriodOfMonth" type="xs:int" minOccurs="0" />
+              <xs:element name="EnfOfSocks" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEnfOfSocks" msprop:Generator_ColumnPropNameInRow="EnfOfSocks" msprop:Generator_ColumnPropNameInTable="EnfOfSocksColumn" msprop:Generator_UserColumnName="EnfOfSocks" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -479,19 +479,19 @@ FROM     Issuance AS Issu LEFT OUTER JOIN
       <xs:selector xpath=".//mstns:Norma" />
       <xs:field xpath="mstns:ID_Norma" />
     </xs:unique>
-    <xs:unique name="Issuance_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:Issuance" />
+    <xs:unique name="IssuanceFull_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:IssuanceFull" />
       <xs:field xpath="mstns:ID_Issuance" />
     </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Employee_Job" msdata:parent="Job" msdata:child="Employee" msdata:parentkey="ID" msdata:childkey="ID_Job" msprop:Generator_UserChildTable="Employee" msprop:Generator_ChildPropName="GetEmployeeRows" msprop:Generator_UserRelationName="FK_Employee_Job" msprop:Generator_RelationVarName="relationFK_Employee_Job" msprop:Generator_UserParentTable="Job" msprop:Generator_ParentPropName="JobRow" />
-      <msdata:Relationship name="FK_Norma_Job1" msdata:parent="Job" msdata:child="Norma" msdata:parentkey="ID" msdata:childkey="ID_Job" msprop:Generator_UserChildTable="Norma" msprop:Generator_ChildPropName="GetNormaRows" msprop:Generator_UserRelationName="FK_Norma_Job1" msprop:Generator_RelationVarName="relationFK_Norma_Job1" msprop:Generator_UserParentTable="Job" msprop:Generator_ParentPropName="JobRow" />
-      <msdata:Relationship name="FK_Norma_WorkWear1" msdata:parent="WorkWear" msdata:child="Norma" msdata:parentkey="ID_WorkWear" msdata:childkey="NameWorkwear" msprop:Generator_UserChildTable="Norma" msprop:Generator_ChildPropName="GetNormaRows" msprop:Generator_UserRelationName="FK_Norma_WorkWear1" msprop:Generator_RelationVarName="relationFK_Norma_WorkWear1" msprop:Generator_UserParentTable="WorkWear" msprop:Generator_ParentPropName="WorkWearRow" />
-      <msdata:Relationship name="FK_Issuance_Employee" msdata:parent="Employee" msdata:child="Issuance" msdata:parentkey="ID_Employee" msdata:childkey="ID_Employee" msprop:Generator_UserChildTable="Issuance" msprop:Generator_ChildPropName="GetIssuanceRows" msprop:Generator_UserRelationName="FK_Issuance_Employee" msprop:Generator_RelationVarName="relationFK_Issuance_Employee" msprop:Generator_UserParentTable="Employee" msprop:Generator_ParentPropName="EmployeeRow" />
-      <msdata:Relationship name="FK_Issuance_WorkWear" msdata:parent="WorkWear" msdata:child="Issuance" msdata:parentkey="ID_WorkWear" msdata:childkey="ID_WorkWear" msprop:Generator_UserChildTable="Issuance" msprop:Generator_ChildPropName="GetIssuanceRows" msprop:Generator_UserRelationName="FK_Issuance_WorkWear" msprop:Generator_RelationVarName="relationFK_Issuance_WorkWear" msprop:Generator_UserParentTable="WorkWear" msprop:Generator_ParentPropName="WorkWearRow" />
-      <msdata:Relationship name="FK_Employee_Job1" msdata:parent="Job" msdata:child="Issuance" msdata:parentkey="ID" msdata:childkey="ID_Job" msprop:Generator_UserChildTable="Issuance" msprop:Generator_ChildPropName="GetIssuanceRows" msprop:Generator_UserRelationName="FK_Employee_Job1" msprop:Generator_ParentPropName="JobRow" msprop:Generator_RelationVarName="relationFK_Employee_Job1" msprop:Generator_UserParentTable="Job" />
+      <msdata:Relationship name="FK_Employee_Job" msdata:parent="Job" msdata:child="Employee" msdata:parentkey="ID" msdata:childkey="ID_Job" msprop:Generator_UserChildTable="Employee" msprop:Generator_ChildPropName="GetEmployeeRows" msprop:Generator_UserRelationName="FK_Employee_Job" msprop:Generator_ParentPropName="JobRow" msprop:Generator_RelationVarName="relationFK_Employee_Job" msprop:Generator_UserParentTable="Job" />
+      <msdata:Relationship name="FK_Norma_Job1" msdata:parent="Job" msdata:child="Norma" msdata:parentkey="ID" msdata:childkey="ID_Job" msprop:Generator_UserChildTable="Norma" msprop:Generator_ChildPropName="GetNormaRows" msprop:Generator_UserRelationName="FK_Norma_Job1" msprop:Generator_ParentPropName="JobRow" msprop:Generator_RelationVarName="relationFK_Norma_Job1" msprop:Generator_UserParentTable="Job" />
+      <msdata:Relationship name="FK_Norma_WorkWear1" msdata:parent="WorkWear" msdata:child="Norma" msdata:parentkey="ID_WorkWear" msdata:childkey="NameWorkwear" msprop:Generator_UserChildTable="Norma" msprop:Generator_ChildPropName="GetNormaRows" msprop:Generator_UserRelationName="FK_Norma_WorkWear1" msprop:Generator_ParentPropName="WorkWearRow" msprop:Generator_RelationVarName="relationFK_Norma_WorkWear1" msprop:Generator_UserParentTable="WorkWear" />
+      <msdata:Relationship name="FK_Issuance_Employee" msdata:parent="Employee" msdata:child="IssuanceFull" msdata:parentkey="ID_Employee" msdata:childkey="ID_Employee" msprop:Generator_UserChildTable="IssuanceFull" msprop:Generator_ChildPropName="GetIssuanceFullRows" msprop:Generator_UserRelationName="FK_Issuance_Employee" msprop:Generator_ParentPropName="EmployeeRow" msprop:Generator_RelationVarName="relationFK_Issuance_Employee" msprop:Generator_UserParentTable="Employee" />
+      <msdata:Relationship name="FK_Issuance_WorkWear" msdata:parent="WorkWear" msdata:child="IssuanceFull" msdata:parentkey="ID_WorkWear" msdata:childkey="ID_WorkWear" msprop:Generator_UserChildTable="IssuanceFull" msprop:Generator_ChildPropName="GetIssuanceFullRows" msprop:Generator_UserRelationName="FK_Issuance_WorkWear" msprop:Generator_ParentPropName="WorkWearRow" msprop:Generator_RelationVarName="relationFK_Issuance_WorkWear" msprop:Generator_UserParentTable="WorkWear" />
+      <msdata:Relationship name="FK_Employee_Job1" msdata:parent="Job" msdata:child="IssuanceFull" msdata:parentkey="ID" msdata:childkey="ID_Job" msprop:Generator_UserChildTable="IssuanceFull" msprop:Generator_ChildPropName="GetIssuanceFullRows" msprop:Generator_UserRelationName="FK_Employee_Job1" msprop:Generator_RelationVarName="relationFK_Employee_Job1" msprop:Generator_UserParentTable="Job" msprop:Generator_ParentPropName="JobRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
