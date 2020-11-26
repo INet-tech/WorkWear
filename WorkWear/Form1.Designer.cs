@@ -62,6 +62,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.issuanceFullBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.workWearDBDataSet2 = new WorkWear.WorkWearDBDataSet();
             this.issuanceFullBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.workWearDBDataSet1 = new WorkWear.WorkWearDBDataSet();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -70,15 +72,21 @@
             this.employeeTableAdapter = new WorkWear.WorkWearDBDataSetTableAdapters.EmployeeTableAdapter();
             this.jobTableAdapter = new WorkWear.WorkWearDBDataSetTableAdapters.JobTableAdapter();
             this.issuanceFullTableAdapter = new WorkWear.WorkWearDBDataSetTableAdapters.IssuanceFullTableAdapter();
-            this.iDIssuanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDEmployeeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.essuanceDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDWorkWearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDJobDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jobDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameWorkwearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.periodOfMonthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.essuanceDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.enfOfSocksDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDIssuanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDEmployeeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDWorkWearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDJobDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStripFordataGridView1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.посмотретьРаботникаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jobBindingSource)).BeginInit();
@@ -91,11 +99,14 @@
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.issuanceFullBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workWearDBDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.issuanceFullBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workWearDBDataSet1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fKIssuanceEmployeeBindingSource1)).BeginInit();
+            this.contextMenuStripFordataGridView1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -172,6 +183,7 @@
             this.heightDataGridViewTextBoxColumn,
             this.sizeClothDataGridViewTextBoxColumn,
             this.sizeShoesDataGridViewTextBoxColumn});
+            this.dataGridView1.ContextMenuStrip = this.contextMenuStripFordataGridView1;
             this.dataGridView1.DataSource = this.employeeBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(4, 19);
@@ -296,14 +308,16 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dateTimePicker2);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.buttonCreateReport);
             this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Location = new System.Drawing.Point(1078, 0);
+            this.groupBox1.Location = new System.Drawing.Point(1061, 0);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(100, 130);
+            this.groupBox1.Size = new System.Drawing.Size(117, 195);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Заявки";
@@ -313,15 +327,15 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(17, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.Size = new System.Drawing.Size(58, 17);
             this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.label1.Text = "Период";
             // 
             // buttonCreateReport
             // 
-            this.buttonCreateReport.Location = new System.Drawing.Point(9, 82);
+            this.buttonCreateReport.Location = new System.Drawing.Point(9, 141);
             this.buttonCreateReport.Name = "buttonCreateReport";
-            this.buttonCreateReport.Size = new System.Drawing.Size(84, 23);
+            this.buttonCreateReport.Size = new System.Drawing.Size(101, 23);
             this.buttonCreateReport.TabIndex = 10;
             this.buttonCreateReport.Text = "Заявка";
             this.buttonCreateReport.UseVisualStyleBackColor = true;
@@ -345,8 +359,9 @@
             "12"});
             this.comboBox1.Location = new System.Drawing.Point(9, 52);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(84, 24);
+            this.comboBox1.Size = new System.Drawing.Size(101, 24);
             this.comboBox1.TabIndex = 1;
+            this.comboBox1.Text = "1";
             // 
             // fKIssuanceEmployeeBindingSource
             // 
@@ -385,6 +400,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GrayText;
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -401,7 +417,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(1070, 326);
+            this.groupBox2.Size = new System.Drawing.Size(1053, 326);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Спецодежда";
@@ -411,23 +427,34 @@
             this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDIssuanceDataGridViewTextBoxColumn,
-            this.iDEmployeeDataGridViewTextBoxColumn1,
-            this.essuanceDateDataGridViewTextBoxColumn,
-            this.iDWorkWearDataGridViewTextBoxColumn,
-            this.iDJobDataGridViewTextBoxColumn1,
             this.fullNameDataGridViewTextBoxColumn,
+            this.jobDataGridViewTextBoxColumn,
             this.nameWorkwearDataGridViewTextBoxColumn,
             this.periodOfMonthDataGridViewTextBoxColumn,
-            this.enfOfSocksDataGridViewTextBoxColumn});
-            this.dataGridView2.DataSource = this.issuanceFullBindingSource;
+            this.essuanceDateDataGridViewTextBoxColumn,
+            this.enfOfSocksDataGridViewTextBoxColumn,
+            this.iDIssuanceDataGridViewTextBoxColumn,
+            this.iDEmployeeDataGridViewTextBoxColumn1,
+            this.iDWorkWearDataGridViewTextBoxColumn,
+            this.iDJobDataGridViewTextBoxColumn1});
+            this.dataGridView2.DataSource = this.issuanceFullBindingSource1;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(4, 19);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(1062, 303);
+            this.dataGridView2.Size = new System.Drawing.Size(1045, 303);
             this.dataGridView2.TabIndex = 0;
+            // 
+            // issuanceFullBindingSource1
+            // 
+            this.issuanceFullBindingSource1.DataMember = "IssuanceFull";
+            this.issuanceFullBindingSource1.DataSource = this.workWearDBDataSet2;
+            // 
+            // workWearDBDataSet2
+            // 
+            this.workWearDBDataSet2.DataSetName = "WorkWearDBDataSet";
+            this.workWearDBDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // issuanceFullBindingSource
             // 
@@ -477,6 +504,56 @@
             // 
             this.issuanceFullTableAdapter.ClearBeforeFill = true;
             // 
+            // fullNameDataGridViewTextBoxColumn
+            // 
+            this.fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
+            this.fullNameDataGridViewTextBoxColumn.HeaderText = "Роботник";
+            this.fullNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
+            this.fullNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fullNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // jobDataGridViewTextBoxColumn
+            // 
+            this.jobDataGridViewTextBoxColumn.DataPropertyName = "Job";
+            this.jobDataGridViewTextBoxColumn.HeaderText = "Специальность";
+            this.jobDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.jobDataGridViewTextBoxColumn.Name = "jobDataGridViewTextBoxColumn";
+            this.jobDataGridViewTextBoxColumn.Width = 140;
+            // 
+            // nameWorkwearDataGridViewTextBoxColumn
+            // 
+            this.nameWorkwearDataGridViewTextBoxColumn.DataPropertyName = "NameWorkwear";
+            this.nameWorkwearDataGridViewTextBoxColumn.HeaderText = "Спецодежда";
+            this.nameWorkwearDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameWorkwearDataGridViewTextBoxColumn.Name = "nameWorkwearDataGridViewTextBoxColumn";
+            this.nameWorkwearDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // periodOfMonthDataGridViewTextBoxColumn
+            // 
+            this.periodOfMonthDataGridViewTextBoxColumn.DataPropertyName = "PeriodOfMonth";
+            this.periodOfMonthDataGridViewTextBoxColumn.HeaderText = "PeriodOfMonth";
+            this.periodOfMonthDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.periodOfMonthDataGridViewTextBoxColumn.Name = "periodOfMonthDataGridViewTextBoxColumn";
+            this.periodOfMonthDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // essuanceDateDataGridViewTextBoxColumn
+            // 
+            this.essuanceDateDataGridViewTextBoxColumn.DataPropertyName = "EssuanceDate";
+            this.essuanceDateDataGridViewTextBoxColumn.HeaderText = "EssuanceDate";
+            this.essuanceDateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.essuanceDateDataGridViewTextBoxColumn.Name = "essuanceDateDataGridViewTextBoxColumn";
+            this.essuanceDateDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // enfOfSocksDataGridViewTextBoxColumn
+            // 
+            this.enfOfSocksDataGridViewTextBoxColumn.DataPropertyName = "EnfOfSocks";
+            this.enfOfSocksDataGridViewTextBoxColumn.HeaderText = "EnfOfSocks";
+            this.enfOfSocksDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.enfOfSocksDataGridViewTextBoxColumn.Name = "enfOfSocksDataGridViewTextBoxColumn";
+            this.enfOfSocksDataGridViewTextBoxColumn.ReadOnly = true;
+            this.enfOfSocksDataGridViewTextBoxColumn.Width = 125;
+            // 
             // iDIssuanceDataGridViewTextBoxColumn
             // 
             this.iDIssuanceDataGridViewTextBoxColumn.DataPropertyName = "ID_Issuance";
@@ -496,20 +573,13 @@
             this.iDEmployeeDataGridViewTextBoxColumn1.Visible = false;
             this.iDEmployeeDataGridViewTextBoxColumn1.Width = 125;
             // 
-            // essuanceDateDataGridViewTextBoxColumn
-            // 
-            this.essuanceDateDataGridViewTextBoxColumn.DataPropertyName = "EssuanceDate";
-            this.essuanceDateDataGridViewTextBoxColumn.HeaderText = "EssuanceDate";
-            this.essuanceDateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.essuanceDateDataGridViewTextBoxColumn.Name = "essuanceDateDataGridViewTextBoxColumn";
-            this.essuanceDateDataGridViewTextBoxColumn.Width = 125;
-            // 
             // iDWorkWearDataGridViewTextBoxColumn
             // 
             this.iDWorkWearDataGridViewTextBoxColumn.DataPropertyName = "ID_WorkWear";
             this.iDWorkWearDataGridViewTextBoxColumn.HeaderText = "ID_WorkWear";
             this.iDWorkWearDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.iDWorkWearDataGridViewTextBoxColumn.Name = "iDWorkWearDataGridViewTextBoxColumn";
+            this.iDWorkWearDataGridViewTextBoxColumn.Visible = false;
             this.iDWorkWearDataGridViewTextBoxColumn.Width = 125;
             // 
             // iDJobDataGridViewTextBoxColumn1
@@ -518,41 +588,47 @@
             this.iDJobDataGridViewTextBoxColumn1.HeaderText = "ID_Job";
             this.iDJobDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.iDJobDataGridViewTextBoxColumn1.Name = "iDJobDataGridViewTextBoxColumn1";
+            this.iDJobDataGridViewTextBoxColumn1.Visible = false;
             this.iDJobDataGridViewTextBoxColumn1.Width = 125;
             // 
-            // fullNameDataGridViewTextBoxColumn
+            // contextMenuStripFordataGridView1
             // 
-            this.fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
-            this.fullNameDataGridViewTextBoxColumn.HeaderText = "FullName";
-            this.fullNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
-            this.fullNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fullNameDataGridViewTextBoxColumn.Width = 125;
+            this.contextMenuStripFordataGridView1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStripFordataGridView1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.посмотретьРаботникаToolStripMenuItem});
+            this.contextMenuStripFordataGridView1.Name = "contextMenuStripFordataGridView1";
+            this.contextMenuStripFordataGridView1.Size = new System.Drawing.Size(241, 28);
             // 
-            // nameWorkwearDataGridViewTextBoxColumn
+            // посмотретьРаботникаToolStripMenuItem
             // 
-            this.nameWorkwearDataGridViewTextBoxColumn.DataPropertyName = "NameWorkwear";
-            this.nameWorkwearDataGridViewTextBoxColumn.HeaderText = "NameWorkwear";
-            this.nameWorkwearDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameWorkwearDataGridViewTextBoxColumn.Name = "nameWorkwearDataGridViewTextBoxColumn";
-            this.nameWorkwearDataGridViewTextBoxColumn.Width = 125;
+            this.посмотретьРаботникаToolStripMenuItem.Name = "посмотретьРаботникаToolStripMenuItem";
+            this.посмотретьРаботникаToolStripMenuItem.Size = new System.Drawing.Size(240, 24);
+            this.посмотретьРаботникаToolStripMenuItem.Text = "Посмотреть работника";
             // 
-            // periodOfMonthDataGridViewTextBoxColumn
+            // label2
             // 
-            this.periodOfMonthDataGridViewTextBoxColumn.DataPropertyName = "PeriodOfMonth";
-            this.periodOfMonthDataGridViewTextBoxColumn.HeaderText = "PeriodOfMonth";
-            this.periodOfMonthDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.periodOfMonthDataGridViewTextBoxColumn.Name = "periodOfMonthDataGridViewTextBoxColumn";
-            this.periodOfMonthDataGridViewTextBoxColumn.Width = 125;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 79);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 17);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Месец";
             // 
-            // enfOfSocksDataGridViewTextBoxColumn
+            // dateTimePicker2
             // 
-            this.enfOfSocksDataGridViewTextBoxColumn.DataPropertyName = "EnfOfSocks";
-            this.enfOfSocksDataGridViewTextBoxColumn.HeaderText = "EnfOfSocks";
-            this.enfOfSocksDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.enfOfSocksDataGridViewTextBoxColumn.Name = "enfOfSocksDataGridViewTextBoxColumn";
-            this.enfOfSocksDataGridViewTextBoxColumn.ReadOnly = true;
-            this.enfOfSocksDataGridViewTextBoxColumn.Width = 125;
+            this.dateTimePicker2.Location = new System.Drawing.Point(9, 99);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(101, 22);
+            this.dateTimePicker2.TabIndex = 12;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(1086, 199);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 17);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Месец";
             // 
             // Form1
             // 
@@ -581,13 +657,17 @@
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fKEmployeeJobBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.issuanceFullBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workWearDBDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.issuanceFullBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workWearDBDataSet1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fKIssuanceEmployeeBindingSource1)).EndInit();
+            this.contextMenuStripFordataGridView1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -632,19 +712,27 @@
         private System.Windows.Forms.BindingSource fKIssuanceEmployeeBindingSource1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private WorkWearDBDataSet workWearDBDataSet1;
         private System.Windows.Forms.BindingSource issuanceFullBindingSource;
         private WorkWearDBDataSetTableAdapters.IssuanceFullTableAdapter issuanceFullTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDIssuanceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDEmployeeDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn essuanceDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDWorkWearDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDJobDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private WorkWearDBDataSet workWearDBDataSet2;
+        private System.Windows.Forms.BindingSource issuanceFullBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jobDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameWorkwearDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn periodOfMonthDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn essuanceDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn enfOfSocksDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDIssuanceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDEmployeeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDWorkWearDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDJobDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripFordataGridView1;
+        private System.Windows.Forms.ToolStripMenuItem посмотретьРаботникаToolStripMenuItem;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 

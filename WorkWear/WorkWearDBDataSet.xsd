@@ -303,11 +303,12 @@ SELECT ID_Norma, ID_Job, NameWorkwear, PeriodOfMonth FROM Norma WHERE (ID_Norma 
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT Issu.ID_Issuance, Issu.ID_Employee, { fn CONCAT(Emp.LastName, + ' ' + Emp.FirstName) } AS FullName, Emp.ID_Job, WoWe.ID_WorkWear, WoWe.NameWorkwear, Norm.PeriodOfMonth, Issu.EssuanceDate, DATEADD(month, 
-                  Norm.PeriodOfMonth, Issu.EssuanceDate) AS EnfOfSocks
+                  Norm.PeriodOfMonth, Issu.EssuanceDate) AS EnfOfSocks, J.Job
 FROM     Issuance AS Issu LEFT OUTER JOIN
                   WorkWear AS WoWe ON Issu.ID_WorkWear = WoWe.ID_WorkWear LEFT OUTER JOIN
                   Employee AS Emp ON Issu.ID_Employee = Emp.ID_Employee LEFT OUTER JOIN
-                  Norma AS Norm ON Emp.ID_Job = Norm.ID_Job AND Issu.ID_WorkWear = Norm.NameWorkwear</CommandText>
+                  Norma AS Norm ON Emp.ID_Job = Norm.ID_Job AND Issu.ID_WorkWear = Norm.NameWorkwear LEFT OUTER JOIN
+                  Job AS J ON Emp.ID_Job = J.ID</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -323,6 +324,7 @@ FROM     Issuance AS Issu LEFT OUTER JOIN
               <Mapping SourceColumn="NameWorkwear" DataSetColumn="NameWorkwear" />
               <Mapping SourceColumn="PeriodOfMonth" DataSetColumn="PeriodOfMonth" />
               <Mapping SourceColumn="EnfOfSocks" DataSetColumn="EnfOfSocks" />
+              <Mapping SourceColumn="Job" DataSetColumn="Job" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -458,6 +460,13 @@ FROM     Issuance AS Issu LEFT OUTER JOIN
               </xs:element>
               <xs:element name="PeriodOfMonth" msprop:Generator_ColumnVarNameInTable="columnPeriodOfMonth" msprop:Generator_ColumnPropNameInRow="PeriodOfMonth" msprop:Generator_ColumnPropNameInTable="PeriodOfMonthColumn" msprop:Generator_UserColumnName="PeriodOfMonth" type="xs:int" minOccurs="0" />
               <xs:element name="EnfOfSocks" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEnfOfSocks" msprop:Generator_ColumnPropNameInRow="EnfOfSocks" msprop:Generator_ColumnPropNameInTable="EnfOfSocksColumn" msprop:Generator_UserColumnName="EnfOfSocks" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Job" msprop:Generator_ColumnVarNameInTable="columnJob" msprop:Generator_ColumnPropNameInRow="Job" msprop:Generator_ColumnPropNameInTable="JobColumn" msprop:Generator_UserColumnName="Job" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -18,6 +18,8 @@ namespace WorkWear
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "workWearDBDataSet2.IssuanceFull". При необходимости она может быть перемещена или удалена.
+            this.issuanceFullTableAdapter.Fill(this.workWearDBDataSet2.IssuanceFull);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "workWearDBDataSet1.IssuanceFull". При необходимости она может быть перемещена или удалена.
             this.issuanceFullTableAdapter.Fill(this.workWearDBDataSet1.IssuanceFull);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "workWearDBDataSet.IssuanceFull". При необходимости она может быть перемещена или удалена.
@@ -126,6 +128,31 @@ namespace WorkWear
 
         private void buttonCreateReport_Click(object sender, EventArgs e)
         {
+            /*
+              select X.*
+              INTO #ttt
+              from (SELECT Issu.ID_Issuance, Issu.ID_Employee,CONCAT(Emp.LastName,+' '+Emp.FirstName) as FullName , Emp.ID_Job,
+              WoWe.ID_WorkWear,WoWe.NameWorkwear, Norm.PeriodOfMonth,Issu.EssuanceDate ,
+              EOMONTH(DATEADD(month, Norm.PeriodOfMonth,Issu.EssuanceDate )) AS EnfOfSocks,Emp.Height,Emp.Size_Cloth,Emp.Size_Shoes
+              --J.Job 
+              FROM Issuance Issu 
+              LEFT JOIN WorkWear WoWe ON Issu.ID_WorkWear = WoWe.ID_WorkWear
+              LEFT JOIN Employee Emp ON Issu.ID_Employee = Emp.ID_Employee
+              LEFT JOIN Norma Norm ON Emp.ID_Job = Norm.ID_Job
+              LEFT JOIN Job J ON Emp.ID_Job = J.ID
+              WHERE Issu.ID_WorkWear = Norm.NameWorkwear ) X
+              where X.EnfOfSocks between  CONVERT (date, GETDATE()) and EOMONTH(DATEADD(month,1 ,CONVERT (date, GETDATE())))
+              
+              SELECT * FROM (SELECT DISTINCT NameWorkwear AS AA FROM #ttt)
+              SELECT DISTINCT NameWorkwear,Height,Size_Cloth AS AA FROM #ttt
+              
+              SELECT * FROM #ttt
+              SELECT EOMONTH(DATEADD(month,1 ,CONVERT (date, GETDATE())))
+             */
+
+            int I = 111;
+            DateTime monthRequest = dateTimePicker2.Value;
+            label3.Text = monthRequest.ToString("Y");
             var Report = new ReportForm();
             Report.Show();
         }
