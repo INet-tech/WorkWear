@@ -91,13 +91,11 @@ namespace WorkWear
             var NewEmployee= new WorkWearForm();
             NewEmployee.Show();
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             var NewNorma = new NormaForms();
             NewNorma.Show();
         }
-
         private void button5_Click(object sender, EventArgs e)
         {
             var Delete = new JobForm();
