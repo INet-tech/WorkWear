@@ -9,7 +9,7 @@ namespace WorkWear
 {
     static class DataSetForReport
     {
-        public static DataSet InsertCustomers(string month)
+        public static DataSet ReportGer(string month)
         {
             DataSet ds = new DataSet();
             string connectionString = @"Data Source=DESKTOP-FOIFO93;Initial Catalog=WorkWearDB;Integrated Security=True";
@@ -38,7 +38,7 @@ namespace WorkWear
                 adapter.Fill(ds);
 
             }
-            DataSet DataSetStorehoussReq = new DataSet();
+            DataSet DataSetStorehoussReq = new DataSet("DataSetStorehousReq");
             DataTable RequestTable = new DataTable("Request");
             // добавляем таблицу в dataset
             DataSetStorehoussReq.Tables.Add(RequestTable);
@@ -97,8 +97,7 @@ namespace WorkWear
                                                                            
 
 
-            var f = dt.Rows[0];
-            var d = dt.Columns[3].ToString();
+           
             //var query = from phone in ds.Tables["Phones"].AsEnumerable()
             //            from company in ds.Tables["Companies"].AsEnumerable()
             //            where (int)phone["CompanyId"] == (int)company["Id"]

@@ -128,17 +128,14 @@ namespace WorkWear
 
         private void buttonCreateReport_Click(object sender, EventArgs e)
         {
-            
-            DataSet dsSSSSS = new DataSet();
-            dsSSSSS = DataSetForReport.InsertCustomers(comboBox1.SelectedItem.ToString());
-            dataGridViewTEST.DataSource = dsSSSSS.Tables[0];
-          //  dataGridView3.DataSource = dsSSSSS.Tables[1];
-           // dataGridView4.DataSource = dsSSSSS.Tables[1];
             DateTime monthRequest = dateTimePicker2.Value;
-            label3.Text = monthRequest.ToString("Y");
-            
-            var Report = new ReportForm();
-            Report.Show();
+            ReportForm fК = new ReportForm();
+            fК.MYer = monthRequest.ToString("Y");
+            fК.Count = comboBox1.SelectedItem.ToString();
+
+            fК.ShowDialog();
+
+       
         }
     }
 }

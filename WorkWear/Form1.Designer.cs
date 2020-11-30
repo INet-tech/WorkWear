@@ -37,6 +37,24 @@
             this.NormaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.WorkWearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonCreateReport = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.fKIssuanceEmployeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.buttonUpdateGrid = new System.Windows.Forms.Button();
+            this.fKEmployeeJobBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.fKIssuanceEmployeeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.contextMenuStripFordataGridView1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.посмотретьРаботникаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.iDEmployeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,27 +69,6 @@
             this.sizeClothDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sizeShoesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonCreateReport = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.fKIssuanceEmployeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.buttonUpdateGrid = new System.Windows.Forms.Button();
-            this.fKEmployeeJobBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.issuanceFullBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.workWearDBDataSet2 = new WorkWear.WorkWearDBDataSet();
-            this.issuanceFullBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.workWearDBDataSet1 = new WorkWear.WorkWearDBDataSet();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.fKIssuanceEmployeeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.employeeTableAdapter = new WorkWear.WorkWearDBDataSetTableAdapters.EmployeeTableAdapter();
-            this.jobTableAdapter = new WorkWear.WorkWearDBDataSetTableAdapters.JobTableAdapter();
-            this.issuanceFullTableAdapter = new WorkWear.WorkWearDBDataSetTableAdapters.IssuanceFullTableAdapter();
             this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jobDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameWorkwearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,20 +79,15 @@
             this.iDEmployeeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDWorkWearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDJobDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextMenuStripFordataGridView1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.посмотретьРаботникаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dataGridViewTEST = new System.Windows.Forms.DataGridView();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.issuanceFullBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.workWearDBDataSet2 = new WorkWear.WorkWearDBDataSet();
+            this.issuanceFullBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.workWearDBDataSet1 = new WorkWear.WorkWearDBDataSet();
+            this.employeeTableAdapter = new WorkWear.WorkWearDBDataSetTableAdapters.EmployeeTableAdapter();
+            this.jobTableAdapter = new WorkWear.WorkWearDBDataSetTableAdapters.JobTableAdapter();
+            this.issuanceFullTableAdapter = new WorkWear.WorkWearDBDataSetTableAdapters.IssuanceFullTableAdapter();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jobBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workWearDBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fKIssuanceEmployeeBindingSource)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -103,17 +95,17 @@
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.issuanceFullBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workWearDBDataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.issuanceFullBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workWearDBDataSet1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fKIssuanceEmployeeBindingSource1)).BeginInit();
             this.contextMenuStripFordataGridView1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTEST)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jobBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workWearDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.issuanceFullBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workWearDBDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.issuanceFullBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workWearDBDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -125,7 +117,7 @@
             this.OpenFormToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1191, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1191, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -134,7 +126,7 @@
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.заявкаToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(58, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(58, 26);
             this.toolStripMenuItem1.Text = "файл";
             // 
             // заявкаToolStripMenuItem
@@ -150,7 +142,7 @@
             this.NormaToolStripMenuItem,
             this.WorkWearToolStripMenuItem});
             this.OpenFormToolStripMenuItem.Name = "OpenFormToolStripMenuItem";
-            this.OpenFormToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
+            this.OpenFormToolStripMenuItem.Size = new System.Drawing.Size(98, 26);
             this.OpenFormToolStripMenuItem.Text = "Настройки";
             // 
             // JobToolStripMenuItem
@@ -197,9 +189,204 @@
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1183, 260);
+            this.dataGridView1.Size = new System.Drawing.Size(1183, 258);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dateTimePicker2);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.buttonCreateReport);
+            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Location = new System.Drawing.Point(1061, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(117, 195);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Заявки";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 17);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Период";
+            // 
+            // buttonCreateReport
+            // 
+            this.buttonCreateReport.Location = new System.Drawing.Point(9, 141);
+            this.buttonCreateReport.Name = "buttonCreateReport";
+            this.buttonCreateReport.Size = new System.Drawing.Size(101, 23);
+            this.buttonCreateReport.TabIndex = 10;
+            this.buttonCreateReport.Text = "Заявка";
+            this.buttonCreateReport.UseVisualStyleBackColor = true;
+            this.buttonCreateReport.Click += new System.EventHandler(this.buttonCreateReport_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.comboBox1.Location = new System.Drawing.Point(9, 52);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(101, 24);
+            this.comboBox1.TabIndex = 1;
+            this.comboBox1.Text = "1";
+            // 
+            // fKIssuanceEmployeeBindingSource
+            // 
+            this.fKIssuanceEmployeeBindingSource.DataMember = "FK_Issuance_Employee";
+            this.fKIssuanceEmployeeBindingSource.DataSource = this.employeeBindingSource;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.SystemColors.GrayText;
+            this.groupBox3.Controls.Add(this.dataGridView1);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Location = new System.Drawing.Point(0, 0);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Size = new System.Drawing.Size(1191, 281);
+            this.groupBox3.TabIndex = 7;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Сотрудники";
+            // 
+            // buttonUpdateGrid
+            // 
+            this.buttonUpdateGrid.Location = new System.Drawing.Point(567, 5);
+            this.buttonUpdateGrid.Name = "buttonUpdateGrid";
+            this.buttonUpdateGrid.Size = new System.Drawing.Size(75, 23);
+            this.buttonUpdateGrid.TabIndex = 10;
+            this.buttonUpdateGrid.Text = "Обновить";
+            this.buttonUpdateGrid.UseVisualStyleBackColor = true;
+            this.buttonUpdateGrid.Click += new System.EventHandler(this.buttonUpdateGrid_Click);
+            // 
+            // fKEmployeeJobBindingSource
+            // 
+            this.fKEmployeeJobBindingSource.DataMember = "FK_Employee_Job";
+            this.fKEmployeeJobBindingSource.DataSource = this.jobBindingSource;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.GrayText;
+            this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 311);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1191, 326);
+            this.panel1.TabIndex = 8;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridView2);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(1053, 326);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Спецодежда";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.fullNameDataGridViewTextBoxColumn,
+            this.jobDataGridViewTextBoxColumn,
+            this.nameWorkwearDataGridViewTextBoxColumn,
+            this.periodOfMonthDataGridViewTextBoxColumn,
+            this.essuanceDateDataGridViewTextBoxColumn,
+            this.enfOfSocksDataGridViewTextBoxColumn,
+            this.iDIssuanceDataGridViewTextBoxColumn,
+            this.iDEmployeeDataGridViewTextBoxColumn1,
+            this.iDWorkWearDataGridViewTextBoxColumn,
+            this.iDJobDataGridViewTextBoxColumn1});
+            this.dataGridView2.DataSource = this.issuanceFullBindingSource1;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(4, 19);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(1045, 303);
+            this.dataGridView2.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Salmon;
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.groupBox3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 30);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1191, 281);
+            this.panel2.TabIndex = 11;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.GrayText;
+            this.panel3.Controls.Add(this.buttonUpdateGrid);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 247);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1191, 34);
+            this.panel3.TabIndex = 8;
+            // 
+            // fKIssuanceEmployeeBindingSource1
+            // 
+            this.fKIssuanceEmployeeBindingSource1.DataMember = "FK_Issuance_Employee";
+            this.fKIssuanceEmployeeBindingSource1.DataSource = this.fKEmployeeJobBindingSource;
+            // 
+            // contextMenuStripFordataGridView1
+            // 
+            this.contextMenuStripFordataGridView1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStripFordataGridView1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.посмотретьРаботникаToolStripMenuItem});
+            this.contextMenuStripFordataGridView1.Name = "contextMenuStripFordataGridView1";
+            this.contextMenuStripFordataGridView1.Size = new System.Drawing.Size(241, 28);
+            // 
+            // посмотретьРаботникаToolStripMenuItem
+            // 
+            this.посмотретьРаботникаToolStripMenuItem.Name = "посмотретьРаботникаToolStripMenuItem";
+            this.посмотретьРаботникаToolStripMenuItem.Size = new System.Drawing.Size(240, 24);
+            this.посмотретьРаботникаToolStripMenuItem.Text = "Посмотреть работника";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 79);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 17);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Месец";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(9, 99);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(101, 22);
+            this.dateTimePicker2.TabIndex = 12;
             // 
             // iDEmployeeDataGridViewTextBoxColumn
             // 
@@ -313,208 +500,6 @@
             this.employeeBindingSource.DataMember = "Employee";
             this.employeeBindingSource.DataSource = this.workWearDBDataSet;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.buttonCreateReport);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Location = new System.Drawing.Point(1061, 0);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(117, 195);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Заявки";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Период";
-            // 
-            // buttonCreateReport
-            // 
-            this.buttonCreateReport.Location = new System.Drawing.Point(9, 141);
-            this.buttonCreateReport.Name = "buttonCreateReport";
-            this.buttonCreateReport.Size = new System.Drawing.Size(101, 23);
-            this.buttonCreateReport.TabIndex = 10;
-            this.buttonCreateReport.Text = "Заявка";
-            this.buttonCreateReport.UseVisualStyleBackColor = true;
-            this.buttonCreateReport.Click += new System.EventHandler(this.buttonCreateReport_Click);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
-            this.comboBox1.Location = new System.Drawing.Point(9, 52);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(101, 24);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.Text = "1";
-            // 
-            // fKIssuanceEmployeeBindingSource
-            // 
-            this.fKIssuanceEmployeeBindingSource.DataMember = "FK_Issuance_Employee";
-            this.fKIssuanceEmployeeBindingSource.DataSource = this.employeeBindingSource;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.BackColor = System.Drawing.SystemColors.GrayText;
-            this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(0, 0);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Size = new System.Drawing.Size(1191, 283);
-            this.groupBox3.TabIndex = 7;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Сотрудники";
-            // 
-            // buttonUpdateGrid
-            // 
-            this.buttonUpdateGrid.Location = new System.Drawing.Point(567, 5);
-            this.buttonUpdateGrid.Name = "buttonUpdateGrid";
-            this.buttonUpdateGrid.Size = new System.Drawing.Size(75, 23);
-            this.buttonUpdateGrid.TabIndex = 10;
-            this.buttonUpdateGrid.Text = "Обновить";
-            this.buttonUpdateGrid.UseVisualStyleBackColor = true;
-            this.buttonUpdateGrid.Click += new System.EventHandler(this.buttonUpdateGrid_Click);
-            // 
-            // fKEmployeeJobBindingSource
-            // 
-            this.fKEmployeeJobBindingSource.DataMember = "FK_Employee_Job";
-            this.fKEmployeeJobBindingSource.DataSource = this.jobBindingSource;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.GrayText;
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 311);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1191, 326);
-            this.panel1.TabIndex = 8;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dataGridView4);
-            this.groupBox2.Controls.Add(this.dataGridView3);
-            this.groupBox2.Controls.Add(this.dataGridViewTEST);
-            this.groupBox2.Controls.Add(this.dataGridView2);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(1053, 326);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Спецодежда";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.fullNameDataGridViewTextBoxColumn,
-            this.jobDataGridViewTextBoxColumn,
-            this.nameWorkwearDataGridViewTextBoxColumn,
-            this.periodOfMonthDataGridViewTextBoxColumn,
-            this.essuanceDateDataGridViewTextBoxColumn,
-            this.enfOfSocksDataGridViewTextBoxColumn,
-            this.iDIssuanceDataGridViewTextBoxColumn,
-            this.iDEmployeeDataGridViewTextBoxColumn1,
-            this.iDWorkWearDataGridViewTextBoxColumn,
-            this.iDJobDataGridViewTextBoxColumn1});
-            this.dataGridView2.DataSource = this.issuanceFullBindingSource1;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(4, 19);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(1045, 303);
-            this.dataGridView2.TabIndex = 0;
-            // 
-            // issuanceFullBindingSource1
-            // 
-            this.issuanceFullBindingSource1.DataMember = "IssuanceFull";
-            this.issuanceFullBindingSource1.DataSource = this.workWearDBDataSet2;
-            // 
-            // workWearDBDataSet2
-            // 
-            this.workWearDBDataSet2.DataSetName = "WorkWearDBDataSet";
-            this.workWearDBDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // issuanceFullBindingSource
-            // 
-            this.issuanceFullBindingSource.DataMember = "IssuanceFull";
-            this.issuanceFullBindingSource.DataSource = this.workWearDBDataSet1;
-            // 
-            // workWearDBDataSet1
-            // 
-            this.workWearDBDataSet1.DataSetName = "WorkWearDBDataSet";
-            this.workWearDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Salmon;
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.groupBox3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 28);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1191, 283);
-            this.panel2.TabIndex = 11;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.GrayText;
-            this.panel3.Controls.Add(this.buttonUpdateGrid);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 249);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1191, 34);
-            this.panel3.TabIndex = 8;
-            // 
-            // fKIssuanceEmployeeBindingSource1
-            // 
-            this.fKIssuanceEmployeeBindingSource1.DataMember = "FK_Issuance_Employee";
-            this.fKIssuanceEmployeeBindingSource1.DataSource = this.fKEmployeeJobBindingSource;
-            // 
-            // employeeTableAdapter
-            // 
-            this.employeeTableAdapter.ClearBeforeFill = true;
-            // 
-            // jobTableAdapter
-            // 
-            this.jobTableAdapter.ClearBeforeFill = true;
-            // 
-            // issuanceFullTableAdapter
-            // 
-            this.issuanceFullTableAdapter.ClearBeforeFill = true;
-            // 
             // fullNameDataGridViewTextBoxColumn
             // 
             this.fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
@@ -602,83 +587,37 @@
             this.iDJobDataGridViewTextBoxColumn1.Visible = false;
             this.iDJobDataGridViewTextBoxColumn1.Width = 125;
             // 
-            // contextMenuStripFordataGridView1
+            // issuanceFullBindingSource1
             // 
-            this.contextMenuStripFordataGridView1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStripFordataGridView1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.посмотретьРаботникаToolStripMenuItem});
-            this.contextMenuStripFordataGridView1.Name = "contextMenuStripFordataGridView1";
-            this.contextMenuStripFordataGridView1.Size = new System.Drawing.Size(241, 28);
+            this.issuanceFullBindingSource1.DataMember = "IssuanceFull";
+            this.issuanceFullBindingSource1.DataSource = this.workWearDBDataSet2;
             // 
-            // посмотретьРаботникаToolStripMenuItem
+            // workWearDBDataSet2
             // 
-            this.посмотретьРаботникаToolStripMenuItem.Name = "посмотретьРаботникаToolStripMenuItem";
-            this.посмотретьРаботникаToolStripMenuItem.Size = new System.Drawing.Size(240, 24);
-            this.посмотретьРаботникаToolStripMenuItem.Text = "Посмотреть работника";
+            this.workWearDBDataSet2.DataSetName = "WorkWearDBDataSet";
+            this.workWearDBDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // label2
+            // issuanceFullBindingSource
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 79);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 17);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Месец";
+            this.issuanceFullBindingSource.DataMember = "IssuanceFull";
+            this.issuanceFullBindingSource.DataSource = this.workWearDBDataSet1;
             // 
-            // dateTimePicker2
+            // workWearDBDataSet1
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(9, 99);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(101, 22);
-            this.dateTimePicker2.TabIndex = 12;
+            this.workWearDBDataSet1.DataSetName = "WorkWearDBDataSet";
+            this.workWearDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // label3
+            // employeeTableAdapter
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1086, 199);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 17);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Месец";
+            this.employeeTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridViewTEST
+            // jobTableAdapter
             // 
-            this.dataGridViewTEST.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewTEST.Location = new System.Drawing.Point(12, 33);
-            this.dataGridViewTEST.Name = "dataGridViewTEST";
-            this.dataGridViewTEST.RowHeadersWidth = 51;
-            this.dataGridViewTEST.RowTemplate.Height = 24;
-            this.dataGridViewTEST.Size = new System.Drawing.Size(458, 131);
-            this.dataGridViewTEST.TabIndex = 1;
+            this.jobTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridView3
+            // issuanceFullTableAdapter
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(490, 33);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersWidth = 51;
-            this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.Size = new System.Drawing.Size(542, 115);
-            this.dataGridView3.TabIndex = 2;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1086, 251);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 17);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Месец";
-            // 
-            // dataGridView4
-            // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(174, 179);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.RowHeadersWidth = 51;
-            this.dataGridView4.RowTemplate.Height = 24;
-            this.dataGridView4.Size = new System.Drawing.Size(596, 123);
-            this.dataGridView4.TabIndex = 3;
+            this.issuanceFullTableAdapter.ClearBeforeFill = true;
             // 
             // Form1
             // 
@@ -698,29 +637,25 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jobBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workWearDBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fKIssuanceEmployeeBindingSource)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fKEmployeeJobBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.issuanceFullBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workWearDBDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.issuanceFullBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workWearDBDataSet1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fKIssuanceEmployeeBindingSource1)).EndInit();
             this.contextMenuStripFordataGridView1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTEST)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jobBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workWearDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.issuanceFullBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workWearDBDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.issuanceFullBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workWearDBDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -785,11 +720,6 @@
         private System.Windows.Forms.ToolStripMenuItem посмотретьРаботникаToolStripMenuItem;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridViewTEST;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dataGridView4;
     }
 }
 
