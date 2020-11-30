@@ -33,8 +33,6 @@ namespace WorkWear
 
         private void ReportForm_Load(object sender, EventArgs e)
         {
-            label1.Text = count;
-            label2.Text = mYer;
             List<ReportD> ReportList = new List<ReportD>();
 
             DataSet ds = new DataSet();
