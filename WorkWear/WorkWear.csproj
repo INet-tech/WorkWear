@@ -64,7 +64,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataSetForReport.cs" />
     <Compile Include="JobForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,7 +77,6 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportD.cs" />
-    <Compile Include="ReportDate.cs" />
     <Compile Include="ReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
