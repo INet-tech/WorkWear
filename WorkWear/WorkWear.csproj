@@ -77,7 +77,8 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Report.cs" />
+    <Compile Include="ReportD.cs" />
+    <Compile Include="ReportDate.cs" />
     <Compile Include="ReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +144,9 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DataSetForReport.datasource" />
     <None Include="Properties\DataSources\Report.datasource" />
+    <None Include="Properties\DataSources\ReportD.datasource" />
+    <None Include="Properties\DataSources\ReportDate.datasource" />
+    <None Include="Properties\DataSources\ReportForm.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

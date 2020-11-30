@@ -11,16 +11,18 @@ using System.Data.SqlClient;
 
 namespace WorkWear
 {
+
     public partial class ReportForm : Form
     {
         string mYer;
         string count;
+        
         public string Count
         {
             set { count = value; }
         }
         public string MYer
-        {
+        {   
             set { mYer = value; }
         }
         public ReportForm()
@@ -33,7 +35,7 @@ namespace WorkWear
         {
             label1.Text = count;
             label2.Text = mYer;
-            List<Report> ReportList = new List<Report>();
+            List<ReportD> ReportList = new List<ReportD>();
 
             DataSet ds = new DataSet();
             string connectionString = @"Data Source=DESKTOP-FOIFO93;Initial Catalog=WorkWearDB;Integrated Security=True";
@@ -83,17 +85,19 @@ namespace WorkWear
                     }
 
                 }
+                ReportList.Add(new ReportD(id, nameClo, sizeClothes, classificColumn, unitColumn, counter, mYer));
 
-                ReportList.Add(new Report(id, nameClo, sizeClothes, classificColumn, unitColumn, counter));
                 sizeClothes = "";
                 counter = 0;
             }
+            //  ReportDate reportDate = new ReportDate(mYer);
+
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "WorkWear.Report.rdlc"; // bind reportviewer with .rdlc
             this.reportViewer1.LocalReport.DataSources.Clear();
             Microsoft.Reporting.WinForms.ReportDataSource DataSet1 = new Microsoft.Reporting.WinForms.ReportDataSource("DataSetForlist", ReportList);//("DataSetStorehousReq", this.tRENDSNORMFURNACE6BindingSource); // set the datasource
-            //Microsoft.Reporting.WinForms.ReportDataSource DataSetFurn6Rep = new Microsoft.Reporting.WinForms.ReportDataSource("DataSetFarnuce", Axis); // set the datasource
+                                                                                                                                                     //   Microsoft.Reporting.WinForms.ReportDataSource DataSet2 = new Microsoft.Reporting.WinForms.ReportDataSource("DataSetDateY", reportDate); // set the datasource
             this.reportViewer1.LocalReport.DataSources.Add(DataSet1);
-            // this.reportViewer1.LocalReport.DataSources.Add(DataSetFurn6);
+            //  this.reportViewer1.LocalReport.DataSources.Add(DataSet2);
             this.reportViewer1.RefreshReport();
 
         }

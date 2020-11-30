@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WorkWear
 {
-    public class Report
+    public class ReportD
     {
         private int id_Column;
         private string name_Workwear_Column;
@@ -14,8 +14,10 @@ namespace WorkWear
         private string classification_Column;
         private string units_Column;
         private int quantity_Column;
+        private string m_Yer;
 
-        public Report(int idnumber, string nameWorkwearColumn, string sizeColumn, string classificationColumn, string unitsColumn, int quantityColumn)
+
+        public ReportD(int idnumber, string nameWorkwearColumn, string sizeColumn, string classificationColumn, string unitsColumn, int quantityColumn ,string mYer)
         {
             id_Column = idnumber;
             name_Workwear_Column = nameWorkwearColumn;
@@ -23,8 +25,9 @@ namespace WorkWear
             classification_Column = classificationColumn;
             units_Column = unitsColumn;
             quantity_Column = quantityColumn;
-
+            m_Yer = mYer;
         }
+      
         public int IdColumn
         {
             get { return id_Column; }
@@ -49,6 +52,9 @@ namespace WorkWear
         {
             get { return quantity_Column; }
         }
-
+        public string MYer
+        {
+            get { return m_Yer; }
+        }
     }
 }
