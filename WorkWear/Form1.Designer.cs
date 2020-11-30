@@ -87,6 +87,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
+            this.dataGridViewTEST = new System.Windows.Forms.DataGridView();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jobBindingSource)).BeginInit();
@@ -107,6 +111,9 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fKIssuanceEmployeeBindingSource1)).BeginInit();
             this.contextMenuStripFordataGridView1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTEST)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -400,6 +407,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GrayText;
+            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
@@ -411,6 +419,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.dataGridView4);
+            this.groupBox2.Controls.Add(this.dataGridView3);
+            this.groupBox2.Controls.Add(this.dataGridViewTEST);
             this.groupBox2.Controls.Add(this.dataGridView2);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
@@ -630,6 +641,45 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "Месец";
             // 
+            // dataGridViewTEST
+            // 
+            this.dataGridViewTEST.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTEST.Location = new System.Drawing.Point(12, 33);
+            this.dataGridViewTEST.Name = "dataGridViewTEST";
+            this.dataGridViewTEST.RowHeadersWidth = 51;
+            this.dataGridViewTEST.RowTemplate.Height = 24;
+            this.dataGridViewTEST.Size = new System.Drawing.Size(458, 131);
+            this.dataGridViewTEST.TabIndex = 1;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(490, 33);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersWidth = 51;
+            this.dataGridView3.RowTemplate.Height = 24;
+            this.dataGridView3.Size = new System.Drawing.Size(542, 115);
+            this.dataGridView3.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(1086, 251);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 17);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Месец";
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Location = new System.Drawing.Point(174, 179);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.RowHeadersWidth = 51;
+            this.dataGridView4.RowTemplate.Height = 24;
+            this.dataGridView4.Size = new System.Drawing.Size(596, 123);
+            this.dataGridView4.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -668,6 +718,9 @@
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fKIssuanceEmployeeBindingSource1)).EndInit();
             this.contextMenuStripFordataGridView1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTEST)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -733,6 +786,10 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView dataGridViewTEST;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView dataGridView4;
     }
 }
 

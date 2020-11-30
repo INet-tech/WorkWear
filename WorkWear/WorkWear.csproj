@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSetForReport.cs" />
     <Compile Include="JobForm.cs">
       <SubType>Form</SubType>
     </Compile>
